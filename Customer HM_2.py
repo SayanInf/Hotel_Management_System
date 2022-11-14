@@ -12,7 +12,6 @@ class Cust_Win:
         self.root.title("Hotel Management System")
         self.root.geometry("1295x550+0+0")
 
-
         #============================variables==================================
         self.var_ref = StringVar()
         x = random.randint(1000,9999)
@@ -152,16 +151,16 @@ class Cust_Win:
         btnAdd = Button(btn_frame, text = "Add", command=self.add_data, font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
         btnAdd.grid(row=0,column=0, padx=1)
 
-        btnUpdt = Button(btn_frame, text = "Update", font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
+        btnUpdt = Button(btn_frame, text = "Update",command=self.update, font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
         btnUpdt.grid(row=0,column=1, padx=1)
 
-        btnDlt = Button(btn_frame, text = "Delete", font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
+        btnDlt = Button(btn_frame, text = "Delete", command=self.mDelete, font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
         btnDlt.grid(row=0,column=2, padx=1)
 
-        btnRst = Button(btn_frame, text = "Reset", font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
+        btnRst = Button(btn_frame, text = "Reset", command=self.reset, font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
         btnRst.grid(row=0,column=3, padx=1)
 
-        #===============================Table Frame===========================
+        #===============================Table Frame Search System===========================
 
         table_frame = LabelFrame(self.root, bd=2, relief = RIDGE, text="View Details and Search System", padx=2, font=("times new roman",15,"bold"))
         table_frame.place(x=435, y=60, width=855, height=480)
@@ -169,22 +168,24 @@ class Cust_Win:
         lblsearch = Label(table_frame, text="Search By:", font=("arial", 13, "bold"), bg="blue", fg="white")
         lblsearch.grid(row=0, column=0)
 
-        combo_search = ttk.Combobox(table_frame, font=("arial", 12, "bold"), width=15, state='readonly')
-        combo_search["value"] = ("Mobile No.", "Reference No.")
+        self.search_var = StringVar()
+        combo_search = ttk.Combobox(table_frame, textvariable=self.search_var, font=("arial", 12, "bold"), width=15, state='readonly')
+        combo_search["value"] = ("Mobile", "Ref")
         combo_search.current(0)
         combo_search.grid(row=0, column=1, padx=5)
 
-        textsearch = ttk.Entry(table_frame, width=43, font=("arial", 13, "bold"))
+        self.txt_search = StringVar()
+        textsearch = ttk.Entry(table_frame, textvariable=self.txt_search, width=43, font=("arial", 13, "bold"))
         textsearch.grid(row=0, column=2, sticky=W, padx=5)
 
-        btnSearch = Button(table_frame, text = "Search", font=("arial", 12, "bold"), bg="blue", fg="white", width=8)
+        btnSearch = Button(table_frame, text = "Search", command=self.search, font=("arial", 12, "bold"), bg="blue", fg="white", width=8)
         btnSearch.grid(row=0,column=3, padx=1)
 
-        btnShowAll = Button(table_frame, text = "Show All", font=("arial", 12, "bold"), bg="blue", fg="white", width=8)
+        btnShowAll = Button(table_frame, text = "Show All", command=self.fetch_data, font=("arial", 12, "bold"), bg="blue", fg="white", width=8)
         btnShowAll.grid(row=0,column=4)
 
         
-        #=====================================Show Data============================
+        #=====================================Show Data Table============================
 
         details_table = Frame(table_frame, bd=2, relief=RIDGE)
         details_table.place(x=0,y=50, width=845,height=400)
@@ -192,8 +193,8 @@ class Cust_Win:
         scroll_x = ttk.Scrollbar(details_table, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(details_table, orient=VERTICAL)
 
-        self.Cust_details_table = ttk.Treeview(details_table, column= ("ref", "name","father","gender","post","mobile",
-                                                                        "email","nationality", "idproof", "idnumber", "address"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
+        self.Cust_details_table = ttk.Treeview(details_table, column=("ref", "name","father","gender","post","mobile",
+                                                                    "email","nationality", "idproof", "idnumber", "address"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
 
         scroll_x.pack(side=BOTTOM, fill=X)
         scroll_y.pack(side=RIGHT, fill=Y)
@@ -229,14 +230,25 @@ class Cust_Win:
         self.Cust_details_table.column("address", width=500)
         
         self.Cust_details_table.pack(fill=BOTH, expand=1)
+        self.Cust_details_table.bind("<ButtonRelease-1>",self.get_cursor)
+        self.fetch_data()
 
-    
+
+
+
+        
+        #===========================Functions==================================
+
     def add_data(self) :
-        if self.var_mobile.get()=="" or self.var_father_name()=="" :
-            messagebox.showerror("Error!","All fields are required", parent = self.root)
+        
+        if ((self.var_cust_name.get()=="") or (self.var_father_name.get()=="") or (self.var_post.get()=="") or
+        (self.var_mobile.get()=="") or (self.var_email.get()=="") or (self.var_id_number.get()=="") or (self.var_address.get()=="")) :
+            
+            messagebox.showerror("Error!","All Fields Are Required", parent = self.root)
+        
         else :
             try:
-                conn = mysql.connector.connect(host="localhost", username=root, password="@SayanMySQL05", database="Hotel Management")
+                conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
                 my_cursor = conn.cursor()
                 my_cursor.execute("insert into customer values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (
                                                                                         self.var_ref.get(),
@@ -247,29 +259,148 @@ class Cust_Win:
                                                                                         self.var_mobile.get(),
                                                                                         self.var_email.get(),
                                                                                         self.var_nationality.get(),
-                                                                                        self.var_id_proof().get(),
+                                                                                        self.var_id_proof.get(),
                                                                                         self.var_id_number.get(),
-                                                                                        self.var_address()
+                                                                                        self.var_address.get()
                                                                                     ))
                 conn.commit()
+                self.fetch_data()
                 conn.close()
-                messagebox.showinfo("Success","Customer has been added", parent = self.root)
+                messagebox.showinfo("Success","Customer Has Been Added", parent = self.root)
 
             except Exception as es :
-                messagebox.showwarning("Warning", f"Something Went Wrong:{str(es)}", parent = self.root)
+                messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
+
+    def fetch_data(self):
+        conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+        my_cursor = conn.cursor()
+        my_cursor.execute("select * from customer")
+        rows = my_cursor.fetchall()
+        if len(rows) != 0 :
+            self.Cust_details_table.delete(*self.Cust_details_table.get_children())
+
+            for i in rows:
+                self.Cust_details_table.insert("", END, values=i)
+                conn.commit()
+            conn.close()
+
+
+    def get_cursor(self,event="") :
+        cursor_row=self.Cust_details_table.focus()
+        content=self.Cust_details_table.item(cursor_row)
+        row=content["values"]
+
+        self.var_ref.set(row[0]),
+        self.var_cust_name.set(row[1]),
+        self.var_father_name.set(row[2]),
+        self.var_gender_name.set(row[3]),
+        self.var_post.set(row[4]),
+        self.var_mobile.set(row[5]),
+        self.var_email.set(row[6]),
+        self.var_nationality.set(row[7]),
+        self.var_id_proof.set(row[8]),
+        self.var_id_number.set(row[9]),
+        self.var_address.set(row[10])
+
+
+    
+    def update(self):
+            
+        if self.var_mobile.get()=="":
+            messagebox.showerror("Error!", "Please Enter Mobile Number", parent=self.root)
+        else :
+            conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+            my_cursor = conn.cursor()
+            my_cursor.execute("update customer set Name=%s, Father=%s, Gender=%s, PostCode=%s, Mobile=%s, Email=%s, Nationality=%s, IDProof=%s, IDNumber=%s, Address=%s where Ref=%s",(
+                                                                                                                            
+                                                                                                                            
+                                                                                                                            self.var_cust_name.get(),
+                                                                                                                            self.var_father_name.get(),
+                                                                                                                            self.var_gender_name.get(),
+                                                                                                                            self.var_post.get(),
+                                                                                                                            self.var_mobile.get(),
+                                                                                                                            self.var_email.get(),
+                                                                                                                            self.var_nationality.get(),
+                                                                                                                            self.var_id_proof.get(),
+                                                                                                                            self.var_id_number.get(),
+                                                                                                                            self.var_address.get(),
+                                                                                                                            self.var_ref.get()
+
+                                                                                                                        ))
+
+            conn.commit()
+            self.fetch_data()
+            conn.close()
+            messagebox.showinfo("Update", "Customer Details Has Been Updated Successfully", parent=self.root)
+
+    def mDelete(self):
+        mDelete=messagebox.askyesno("Hotel Management System","Do you want to delete this customer?", parent=self.root)
+            
+        if mDelete > 0 :
+            conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+            my_cursor = conn.cursor()
+            query ="delete from customer where Ref=%s"
+            value = (self.var_ref.get(),)
+            my_cursor.execute(query,value)
+        else:
+            if not mDelete:
+                return
+        conn.commit()
+        self.fetch_data()
+        conn.close()
+
+
+    def reset(self):
+        #self.var_ref.set(""),
+        self.var_cust_name.set(""),
+        self.var_father_name.set(""),
+        #self.var_gender_name.set(""),
+        self.var_post.set(""),
+        self.var_mobile.set(""),
+        self.var_email.set(""),
+        #self.var_nationality.set(""),
+        #self.var_id_proof.set(""),
+        self.var_id_number.set(""),
+        self.var_address.set("")
+
+        x = random.randint(1000,9999)
+        self.var_ref.set(str(x))
+
+
+    def search(self):
+        conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+        my_cursor = conn.cursor()
+
+
+        try:
+            my_cursor.execute("select * from customer where "+str(self.search_var.get())+" LIKE '%"+str(self.txt_search.get())+"%'")
+            rows=my_cursor.fetchall()
+            if len(rows) != 0 :
+                self.Cust_details_table.delete(*self.Cust_details_table.get_children())
+                for i in rows:
+                    self.Cust_details_table.insert("",END, values=i)
+                conn.commit()
+            conn.close()
+        
+        except Exception as es :
+                messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
     
-
-
-
-
-
-
-
 
 if __name__=="__main__":
     root=Tk()
