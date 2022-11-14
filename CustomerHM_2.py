@@ -34,11 +34,7 @@ class Cust_Win:
         lbl_title.place(x=70,y=0, width=1225,height=60)
 
         # ================================Logo==================================
-<<<<<<< HEAD:CustomerHM_2.py
         img2 = Image.open(r"P:\Hotel Management\images\logo3.png")
-=======
-        img2 = Image.open(r"Copy Your Logo image Path and paste")
->>>>>>> 929ce957ed9eb93ce3646ba3a86c7fafe41925dc:Customer HM_2.py
         img2= img2.resize((70,60))
         self.photoimg2= ImageTk.PhotoImage(img2)
 
@@ -252,7 +248,7 @@ class Cust_Win:
         
         else :
             try:
-                conn = mysql.connector.connect(host="localhost", username="root", password="Enter Password Of your MySQL root", database="hotel_management")
+                conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
                 my_cursor = conn.cursor()
                 my_cursor.execute("insert into customer values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (
                                                                                         self.var_ref.get(),
@@ -276,7 +272,7 @@ class Cust_Win:
                 messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
 
     def fetch_data(self):
-        conn = mysql.connector.connect(host="localhost", username="root", password="Enter Password Of your MySQL root", database="hotel_management")
+        conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
         my_cursor = conn.cursor()
         my_cursor.execute("select * from customer")
         rows = my_cursor.fetchall()
@@ -313,7 +309,7 @@ class Cust_Win:
         if self.var_mobile.get()=="":
             messagebox.showerror("Error!", "Please Enter Mobile Number", parent=self.root)
         else :
-            conn = mysql.connector.connect(host="localhost", username="root", password="Enter Password Of your MySQL root", database="hotel_management")
+            conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
             my_cursor = conn.cursor()
             my_cursor.execute("update customer set Name=%s, Father=%s, Gender=%s, PostCode=%s, Mobile=%s, Email=%s, Nationality=%s, IDProof=%s, IDNumber=%s, Address=%s where Ref=%s",(
                                                                                                                             
@@ -341,7 +337,7 @@ class Cust_Win:
         mDelete=messagebox.askyesno("Hotel Management System","Do you want to delete this customer?", parent=self.root)
             
         if mDelete > 0 :
-            conn = mysql.connector.connect(host="localhost", username="root", password="Enter Password Of your MySQL root", database="hotel_management")
+            conn = mysql.connector.connect(host="localhost", username="root",password="@SayanMySQL05", database="hotel_management")
             my_cursor = conn.cursor()
             query ="delete from customer where Ref=%s"
             value = (self.var_ref.get(),)
@@ -372,7 +368,7 @@ class Cust_Win:
 
 
     def search(self):
-        conn = mysql.connector.connect(host="localhost", username="root", password="Enter Password Of your MySQL root", database="hotel_management")
+        conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
         my_cursor = conn.cursor()
 
 
