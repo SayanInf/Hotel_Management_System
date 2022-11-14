@@ -10,7 +10,7 @@ class Cust_Win:
     def __init__(self,root):
         self.root = root
         self.root.title("Hotel Management System")
-        self.root.geometry("1295x550+0+0")
+        self.root.geometry("1295x550+25+60")
 
         #============================variables==================================
         self.var_ref = StringVar()
@@ -34,7 +34,7 @@ class Cust_Win:
         lbl_title.place(x=70,y=0, width=1225,height=60)
 
         # ================================Logo==================================
-        img2 = Image.open(r"P:\Hotel Management\Images\logo.jpg")
+        img2 = Image.open(r"P:\Hotel Management\images\logo3.png")
         img2= img2.resize((70,60))
         self.photoimg2= ImageTk.PhotoImage(img2)
 
@@ -393,14 +393,6 @@ class Cust_Win:
 
 
 
-
-
-
-
-
-
-
-    
 
 if __name__=="__main__":
     root=Tk()
