@@ -124,8 +124,8 @@ class Register:
         btn1=Button(frame, image=self.photoimage,borderwidth=0,cursor="hand2", bg="light blue", fg="light blue")
         btn1.place(x=400, y=480, width=300)
 
-        or_lbl=Label(frame, text="OR,", font=("times new roman", 15, "bold"), bg="white", fg="dark blue")
-        or_lbl.place(x=600,y=20)
+        or_lbl=Label(frame, text="Already Have An Account?", font=("times new roman", 12, "bold"), bg="white", fg="dark blue")
+        or_lbl.place(x=450,y=25)
 
         loginbtnimg=Image.open(r"P:\Hotel Management\Images\login.png")
         loginbtnimg=loginbtnimg.resize((100,30),Image.ANTIALIAS)
