@@ -22,7 +22,7 @@ class HotelmanagementSystem:
 
         #========================================logo=========================================
         img2=Image.open(r"P:\Hotel Management\images\logo3.png")
-        img2=img2.resize((230,140),Image.ANTIALIAS)
+        img2=img2.resize((230,140))
         self.photoimg2=ImageTk.PhotoImage(img2)
 
         lblimg=Label(self.root,image=self.photoimg2,bd=2, relief = RIDGE)
@@ -34,7 +34,7 @@ class HotelmanagementSystem:
 
 
         #========================================main frame===========================================
-        main_frame=Frame(self.root,bd=2,relief=RIDGE)
+        main_frame=Frame(self.root,bd=2,bg="blue",relief=RIDGE)
         main_frame.place(x=0,y=190,width=1360,height=510)
 
 
@@ -44,7 +44,7 @@ class HotelmanagementSystem:
 
 
         #=========================================button frame===========================================
-        btn_frame=Frame(main_frame,bd=2,relief=RIDGE)
+        btn_frame=Frame(main_frame,bd=2,bg="blue",relief=RIDGE)
         btn_frame.place(x=0,y=35,width=230,height=190)
 
 
