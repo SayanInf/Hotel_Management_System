@@ -307,47 +307,62 @@ class Cust_Win:
     def update(self):
             
         if self.var_mobile.get()=="":
-            messagebox.showerror("Error!", "Please Enter Mobile Number", parent=self.root)
+            messagebox.showerror("Error!", "Please Select A Record", parent=self.root)
         else :
-            conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
-            my_cursor = conn.cursor()
-            my_cursor.execute("update customer set Name=%s, Father=%s, Gender=%s, PostCode=%s, Mobile=%s, Email=%s, Nationality=%s, IDProof=%s, IDNumber=%s, Address=%s where Ref=%s",(
-                                                                                                                            
-                                                                                                                            
-                                                                                                                            self.var_cust_name.get(),
-                                                                                                                            self.var_father_name.get(),
-                                                                                                                            self.var_gender_name.get(),
-                                                                                                                            self.var_post.get(),
-                                                                                                                            self.var_mobile.get(),
-                                                                                                                            self.var_email.get(),
-                                                                                                                            self.var_nationality.get(),
-                                                                                                                            self.var_id_proof.get(),
-                                                                                                                            self.var_id_number.get(),
-                                                                                                                            self.var_address.get(),
-                                                                                                                            self.var_ref.get()
+            try:
+                conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+                my_cursor = conn.cursor()
+                my_cursor.execute("update customer set Name=%s, Father=%s, Gender=%s, PostCode=%s, Mobile=%s, Email=%s, Nationality=%s, IDProof=%s, IDNumber=%s, Address=%s where Ref=%s",(
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                self.var_cust_name.get(),
+                                                                                                                                self.var_father_name.get(),
+                                                                                                                                self.var_gender_name.get(),
+                                                                                                                                self.var_post.get(),
+                                                                                                                                self.var_mobile.get(),
+                                                                                                                                self.var_email.get(),
+                                                                                                                                self.var_nationality.get(),
+                                                                                                                                self.var_id_proof.get(),
+                                                                                                                                self.var_id_number.get(),
+                                                                                                                                self.var_address.get(),
+                                                                                                                                self.var_ref.get()
 
-                                                                                                                        ))
+                                                                                                                            ))
 
-            conn.commit()
-            self.fetch_data()
-            conn.close()
-            messagebox.showinfo("Update", "Customer Details Has Been Updated Successfully", parent=self.root)
+                conn.commit()
+                self.fetch_data()
+                conn.close()
+                messagebox.showinfo("Update", "Customer Details Has Been Updated Successfully", parent=self.root)
+            
+            except Exception as es :
+                messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
+
 
     def mDelete(self):
-        mDelete=messagebox.askyesno("Hotel Management System","Do you want to delete this customer?", parent=self.root)
-            
-        if mDelete > 0 :
-            conn = mysql.connector.connect(host="localhost", username="root",password="@SayanMySQL05", database="hotel_management")
-            my_cursor = conn.cursor()
-            query ="delete from customer where Ref=%s"
-            value = (self.var_ref.get(),)
-            my_cursor.execute(query,value)
-        else:
-            if not mDelete:
-                return
-        conn.commit()
-        self.fetch_data()
-        conn.close()
+
+        if self.var_mobile.get()=="":
+            messagebox.showerror("Error!", "Please Select A Record", parent=self.root)
+        
+        else :
+            try:
+                mDelete=messagebox.askyesno("Hotel Management System","Do you want to delete this customer?", parent=self.root)
+                    
+                if mDelete > 0 :
+                    conn = mysql.connector.connect(host="localhost", username="root",password="@SayanMySQL05", database="hotel_management")
+                    my_cursor = conn.cursor()
+                    query ="delete from customer where Ref=%s"
+                    value = (self.var_ref.get(),)
+                    my_cursor.execute(query,value)
+                else:
+                    if not mDelete:
+                        return
+                conn.commit()
+                self.fetch_data()
+                conn.close()
+            except Exception as es :
+                messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
+
+                
 
 
     def reset(self):
