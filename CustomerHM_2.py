@@ -11,6 +11,8 @@ class Cust_Win:
         self.root = root
         self.root.title("Hotel Management System")
         self.root.geometry("1295x550+25+60")
+        self.root["bg"] = "lightcyan1"
+
 
         #============================variables==================================
         self.var_ref = StringVar()
@@ -43,35 +45,35 @@ class Cust_Win:
 
 
         #===============================Label===================================
-        labelframeleft  = LabelFrame(self.root, bd=2, relief = RIDGE, text="Customer Details", padx=2, font=("times new roman",15,"bold"))
+        labelframeleft  = LabelFrame(self.root, bd=2, relief = RIDGE, text="Customer Details", padx=2, font=("times new roman",15,"bold"), bg="lightcyan1")
         labelframeleft.place(x=5, y=60, width=425, height=480)
 
 
         #===============================Labels and Entry=========================
         
         #Customer Ref
-        lbl_cust_ref = Label(labelframeleft, text="Customer Ref:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lbl_cust_ref = Label(labelframeleft, text="Customer Ref:", font=("arial", 12, "bold"), padx=2, pady=6,bg="lightcyan1")
         lbl_cust_ref.grid(row=0, column=0)
 
         entry_ref = ttk.Entry(labelframeleft, width=28, textvariable=self.var_ref, font=("arial", 13, "bold"), state="readonly")
         entry_ref.grid(row=0, column=1, sticky=W, padx=10)
 
         #Customer Name
-        cname = Label(labelframeleft, text="Customer Name:", font=("arial", 12, "bold"), padx=2, pady=6)
+        cname = Label(labelframeleft, text="Customer Name:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         cname.grid(row=1, column=0)
 
         txtcname = ttk.Entry(labelframeleft, textvariable=self.var_cust_name, width=28, font=("arial", 13, "bold"))
         txtcname.grid(row=1, column=1, sticky=W,padx=10)
 
         #Fathter's Name
-        cfname = Label(labelframeleft, text="Father's Name:", font=("arial", 12, "bold"), padx=2, pady=6)
+        cfname = Label(labelframeleft, text="Father's Name:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         cfname.grid(row=2, column=0)
 
         txtcfname = ttk.Entry(labelframeleft, textvariable=self.var_father_name, width=28, font=("arial", 13, "bold"))
         txtcfname.grid(row=2, column=1, sticky=W,padx=10)
 
         #Gender Combobox
-        lbl_gender = Label(labelframeleft, text="Gender:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lbl_gender = Label(labelframeleft, text="Gender:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lbl_gender.grid(row=3, column=0)
 
         combo_gender = ttk.Combobox(labelframeleft, textvariable=self.var_gender_name, font=("arial", 12, "bold"), width=27, state='readonly')
@@ -80,28 +82,28 @@ class Cust_Win:
         combo_gender.grid(row=3, column=1)
 
         #Post Name
-        lblPostCode = Label(labelframeleft, text="Post Code:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lblPostCode = Label(labelframeleft, text="Post Code:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lblPostCode.grid(row=4, column=0)
 
         lblPostCode = ttk.Entry(labelframeleft, textvariable=self.var_post, width=28, font=("arial", 13, "bold"))
         lblPostCode.grid(row=4, column=1, sticky=W, padx=10)
 
         #Mobilenumber
-        lblmobile = Label(labelframeleft, text="Mobile No:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lblmobile = Label(labelframeleft, text="Mobile No:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lblmobile.grid(row=5, column=0)
 
         lblmobile = ttk.Entry(labelframeleft, textvariable=self.var_mobile, width=28, font=("arial", 13, "bold"))
         lblmobile.grid(row=5, column=1, sticky=W, padx=10)
 
         #Email
-        lblemail = Label(labelframeleft, text="Email:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lblemail = Label(labelframeleft, text="Email:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lblemail.grid(row=6, column=0)
 
         lblemail = ttk.Entry(labelframeleft, textvariable=self.var_email, width=28, font=("arial", 13, "bold"))
         lblemail.grid(row=6, column=1, sticky=W, padx=10)
 
         #Nationality Combobox
-        lblnationality = Label(labelframeleft, text="Nationality:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lblnationality = Label(labelframeleft, text="Nationality:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lblnationality.grid(row=7, column=0)
 
         nationality = ttk.Combobox(labelframeleft, textvariable=self.var_nationality, font=("arial", 12, "bold"), width=27, state='readonly')
@@ -118,7 +120,7 @@ class Cust_Win:
         
 
         #idproof Combobox
-        lblnationality = Label(labelframeleft, text="ID Proof Type:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lblnationality = Label(labelframeleft, text="ID Proof Type:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lblnationality.grid(row=8, column=0)
 
         idproof = ttk.Combobox(labelframeleft, textvariable=self.var_id_proof, font=("arial", 12, "bold"), width=27, state='readonly')
@@ -129,7 +131,7 @@ class Cust_Win:
 
 
         #idnumber 
-        lblidnum = Label(labelframeleft, text="Id Number:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lblidnum = Label(labelframeleft, text="Id Number:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lblidnum.grid(row=9, column=0)
 
         lblidnum = ttk.Entry(labelframeleft, textvariable=self.var_id_number, width=28, font=("arial", 13, "bold"))
@@ -137,7 +139,7 @@ class Cust_Win:
 
 
         #Address
-        lbladdress = Label(labelframeleft, text="Address:", font=("arial", 12, "bold"), padx=2, pady=6)
+        lbladdress = Label(labelframeleft, text="Address:", font=("arial", 12, "bold"), padx=2, pady=6, bg="lightcyan1")
         lbladdress.grid(row=10, column=0)
 
         lbladdress = ttk.Entry(labelframeleft, textvariable=self.var_address, width=28, font=("arial", 13, "bold"))
@@ -145,7 +147,7 @@ class Cust_Win:
 
         #===============================Buttons==============================
 
-        btn_frame = Frame(labelframeleft, bd=2, relief=RIDGE)
+        btn_frame = Frame(labelframeleft, bd=2, relief=RIDGE, bg="lightcyan1")
         btn_frame.place(x=2,y=400, width=412,height=36)
 
         btnAdd = Button(btn_frame, text = "Add", command=self.add_data, font=("arial", 12, "bold"), bg="black", fg="gold", width=9)
@@ -162,10 +164,10 @@ class Cust_Win:
 
         #===============================Table Frame Search System===========================
 
-        table_frame = LabelFrame(self.root, bd=2, relief = RIDGE, text="View Details and Search System", padx=2, font=("times new roman",15,"bold"))
+        table_frame = LabelFrame(self.root, bd=2, relief = RIDGE, text="View Details and Search System", padx=2, font=("times new roman",15,"bold"), bg="lightcyan1")
         table_frame.place(x=435, y=60, width=855, height=480)
 
-        lblsearch = Label(table_frame, text="Search By:", font=("arial", 13, "bold"), bg="blue", fg="white")
+        lblsearch = Label(table_frame, text="Search By:", font=("arial", 13, "bold"), fg="black", bg="lightcyan1")
         lblsearch.grid(row=0, column=0)
 
         self.search_var = StringVar()
@@ -178,16 +180,16 @@ class Cust_Win:
         textsearch = ttk.Entry(table_frame, textvariable=self.txt_search, width=43, font=("arial", 13, "bold"))
         textsearch.grid(row=0, column=2, sticky=W, padx=5)
 
-        btnSearch = Button(table_frame, text = "Search", command=self.search, font=("arial", 12, "bold"), bg="blue", fg="white", width=8)
+        btnSearch = Button(table_frame, text = "Search", command=self.search, font=("arial", 12, "bold"), bg="steelblue1", fg="black", width=8)
         btnSearch.grid(row=0,column=3, padx=1)
 
-        btnShowAll = Button(table_frame, text = "Show All", command=self.fetch_data, font=("arial", 12, "bold"), bg="blue", fg="white", width=8)
+        btnShowAll = Button(table_frame, text = "Show All", command=self.fetch_data, font=("arial", 12, "bold"), bg="steelblue1", fg="black", width=8)
         btnShowAll.grid(row=0,column=4)
 
         
         #=====================================Show Data Table============================
 
-        details_table = Frame(table_frame, bd=2, relief=RIDGE)
+        details_table = Frame(table_frame, bd=2, relief=RIDGE, bg="aliceblue")
         details_table.place(x=0,y=50, width=845,height=400)
 
         scroll_x = ttk.Scrollbar(details_table, orient=HORIZONTAL)
