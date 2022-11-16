@@ -111,7 +111,7 @@ class Login_window:
     def register_window(self):
         self.new_window=Toplevel(self.root)
         self.app=Register(self.new_window)
-        Login_window.destroy()
+        
 
         
 
