@@ -66,7 +66,7 @@ class Register:
         self.txt_contact=ttk.Entry(frame, font=("times new roman", 15, "bold"))
         self.txt_contact.place(x=49,y=230, width=250)
 
-        email=Label(frame, text="Email", font=("times new roman", 15, "bold"), bg="white", fg="dark blue")
+        email=Label(frame, text="Username/Email", font=("times new roman", 15, "bold"), bg="white", fg="dark blue")
         email.place(x=400,y=200)
 
         self.txt_email=ttk.Entry(frame, font=("times new roman", 15, "bold"))

@@ -1,6 +1,7 @@
 from tkinter import*
 from PIL import Image, ImageTk  
 from CustomerHM_2 import Cust_Win
+from report import Report
 
 
 class HotelmanagementSystem:
@@ -60,10 +61,10 @@ class HotelmanagementSystem:
         details_btn.grid(row=2,column=0,pady=1)
 
 
-        report_btn=Button(btn_frame,text="REPORT",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        report_btn=Button(btn_frame,text="REPORT", command=self.report,width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         report_btn.grid(row=3,column=0,pady=1)
 
-        logout_btn=Button(btn_frame,text="LOG OUT",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        logout_btn=Button(btn_frame,text="LOG OUT",command=self.logout,width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         logout_btn.grid(row=4,column=0,pady=1)
 
 
@@ -96,6 +97,16 @@ class HotelmanagementSystem:
     def cust_details(self):
         self.new_window = Toplevel(self.root)
         self.app = Cust_Win(self.new_window)
+
+
+    def report(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Report(self.new_window)
+
+    
+    
+    def logout(self):
+        self.root.destroy()
 
 
 

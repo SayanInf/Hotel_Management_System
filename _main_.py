@@ -4,6 +4,8 @@ from PIL import Image,ImageTk
 from tkinter import messagebox
 import mysql.connector
 from CustomerHM_2 import Cust_Win
+from Hotel_Manage import HotelmanagementSystem
+from report import Report
 
 
 def main():
@@ -13,12 +15,12 @@ def main():
 
 
 
-
+    #________________________________________Login Window______________________________________
 
 class Login_window:
     def __init__(self,root):
         self.root=root
-        self.root.title("Login")
+        self.root.title("Login Window")
         self.root.geometry("1360x700+0+0")
         
         img=Image.open(r"P:\Hotel Management\Images\img29.jpg") #"E:\hotel management pics\wallpapersden.com_dubai-hotel-sea_1920x1080.jpg"
@@ -103,7 +105,7 @@ class Login_window:
         registerbtn.place(x=15,y=380,width=160,)
 
         #==============================forgot password button================================
-        forgotpasswordbtn=Button(frame,text="Forgot password",font=("times new roman",10,"bold"),borderwidth=0,fg="white",bg="black",activeforeground="white",activebackground="black")
+        forgotpasswordbtn=Button(frame,text="Forgot password",command=self.forgot_password_window,font=("times new roman",10,"bold"),borderwidth=0,fg="white",bg="black",activeforeground="white",activebackground="black")
         forgotpasswordbtn.place(x=8,y=400,width=160)
 
 
@@ -119,7 +121,7 @@ class Login_window:
 
 
 
-
+    #================================================Login Function=====================================
 
     def login(self):
         if self.txtuser.get()=="" or self.txtpass.get()=="":
@@ -147,6 +149,95 @@ class Login_window:
                         return
             conn.commit()
             conn.close()
+            self.txtuser.delete(0,'end')
+            self.txtpass.delete(0,'end')
+
+
+    #================================================Reset Password===================================================
+    
+    def reset_pass(self):
+        if self.combo_security_Q.get()=="Select":
+            messagebox.showerror("Error!", "Please Select the Security Question",parent=self.root2)
+        elif self.txt_Security_A.get()=="":
+            messagebox.showerror("Error!", "Please Enter The Answer",parent=self.root2)
+        elif self.txt_newpass.get()=="":
+            messagebox.showerror("Error!", "Please Enter The New Password",parent=self.root2)
+        else:
+            conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
+            my_cursor=conn.cursor()
+            query=("select * from register where email=%s and securityQ=%s and securityA=%s")
+            value=(self.txtuser.get(),self.combo_security_Q.get(),self.txt_Security_A.get(),)
+            my_cursor.execute(query,value)
+            row=my_cursor.fetchone()
+            if row==None:
+                messagebox.showerror("Error!", "Please Enter The Correct Answer",parent=self.root2)
+            else:
+                query=("update register set password=%s where email=%s")
+                value=(self.txt_newpass.get(),self.txtuser.get(),)
+                my_cursor.execute(query,value)
+
+                conn.commit()
+                conn.close()
+                messagebox.showinfo("Info", "Your Password Has Been Reset, Please Login With New Password",parent=self.root2)
+                self.root2.destroy()
+
+
+
+
+
+    #==============================================Forgot Password Window=============================================
+
+    def forgot_password_window(self):
+        if self.txtuser.get()=="":
+            messagebox.showerror("Error!", "Please Enter The Username To Reset Password")
+        else:
+            conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
+            my_cursor=conn.cursor()
+            query=("select * from register where email=%s")
+            value=(self.txtuser.get(),)
+            my_cursor.execute(query,value)
+            row=my_cursor.fetchone()
+            #print(row)
+
+            if row==None:
+                messagebox.showerror("Error!", "Please Enter The Valid Username")
+            else:
+                conn.close()
+                self.root2=Toplevel()
+                self.root2.title("Forgot Password?")
+                self.root2.geometry("340x540+500+110")
+                self.root2["bg"] = "black"
+                
+
+                l=Label(self.root2, text="Forgot Password?",font=("times new roman",15,"bold"),fg="red",bg="black")
+                l.place(x=0,y=20,relwidth=1)
+
+                Security_Q=Label(self.root2, text="Select Security Question", font=("times new roman", 15, "bold"), bg="black", fg="red")
+                Security_Q.place(x=50,y=80)
+
+                self.combo_security_Q=ttk.Combobox(self.root2,font=("times new roman", 15, "bold"), state="readonly")
+                self.combo_security_Q["values"]=("Select", "Your Birth Place", "Your Goal", "Your Pet Name")
+                self.combo_security_Q.place(x=49, y=110)
+                self.combo_security_Q.current(0)
+
+
+
+                
+                Security_A=Label(self.root2, text="Security Answer", font=("times new roman", 15, "bold"), bg="black", fg="red")
+                Security_A.place(x=50,y=150)
+
+                self.txt_Security_A=ttk.Entry(self.root2, font=("times new roman", 15, "bold"))
+                self.txt_Security_A.place(x=50,y=180, width=250)
+
+                new_password=Label(self.root2, text="New Password", font=("times new roman", 15, "bold"), bg="black", fg="red")
+                new_password.place(x=50,y=220)
+
+                self.txt_newpass=ttk.Entry(self.root2, font=("times new roman", 15, "bold"))
+                self.txt_newpass.place(x=50,y=250, width=250)
+
+
+                btn=Button(self.root2,text="Reset", command=self.reset_pass, font=("times new roman", 15, "bold"), fg= "red", bg="black" )
+                btn.place(x=140,y=290)
 
 
 
@@ -162,6 +253,7 @@ class Login_window:
 
 
 
+    #_________________________________________Registration Window_________________________________________
 
 class Register:
     def __init__(self,root):
@@ -237,7 +329,7 @@ class Register:
         self.txt_contact=ttk.Entry(frame,textvariable=self.var_contact, font=("times new roman", 15, "bold"))
         self.txt_contact.place(x=49,y=230, width=250)
 
-        email=Label(frame, text="Email", font=("times new roman", 15, "bold"), bg="white", fg="dark blue")
+        email=Label(frame, text="Username/Email", font=("times new roman", 15, "bold"), bg="white", fg="dark blue")
         email.place(x=400,y=200)
 
         self.txt_email=ttk.Entry(frame,textvariable=self.var_email, font=("times new roman", 15, "bold"))
@@ -282,6 +374,7 @@ class Register:
         
         
         #================================CheckButton========================
+        
         self.var_cheak=IntVar()
         checkbtn = Checkbutton(frame,variable=self.var_cheak, text="I Agree To The Terms & Conditions", font=("times new roman", 12, "bold"), bg="white", fg="dark blue", onvalue=1, offvalue=0)
         checkbtn.place(x=50, y=480)
@@ -306,14 +399,15 @@ class Register:
         btn1.place(x=650, y=20, width=100)
 
 
-    #====================================Function declaration=======================================================
+    #=============================================Register Function=======================================================
     def register_data(self):
         if self.var_fname.get()=="" or self.var_email.get()=="" or self.var_securityQ.get()=="Select":
             messagebox.showerror("Error","All fields are required")
         elif self.var_pass.get()!=self.var_confpass.get():
-            messagebox.showerror("Error","Password and Confirm Password must be same")
+            messagebox.showerror("Error!","Password And Confirm Password Must Be Same")
         elif self.var_cheak.get()==0:
-            messagebox.showerror("Error","Please Agree to the terms and conditions.")
+            messagebox.showerror("Error!","Please Agree To The Terms and Conditions.")
+            messagebox.showinfo("Terms And Conditions", "Please visit site https://thehotelmanagement.co/terms-conditions/")
         else:
             conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
             my_cursor=conn.cursor()
@@ -322,7 +416,7 @@ class Register:
             my_cursor.execute(query,value)
             row=my_cursor.fetchone()
             if row != None:
-                messagebox.showerror("Error","User already exists. Please try another email")
+                messagebox.showerror("Error!","User Already Exists. Please Try Another Email")
             else:
                 my_cursor.execute("insert into register values(%s,%s,%s,%s,%s,%s,%s)",(
                                                                                         self.var_fname.get(),
@@ -337,17 +431,19 @@ class Register:
             conn.commit()
             conn.close()
             messagebox.showinfo("Success","Registered Successfully")
+            self.root.destroy()
 
     
     
     def login_window(self):
-        self.new_window=Toplevel(self.root)
-        self.app=Login_window(self.new_window)
+        self.root.destroy()
 
 
 
 
 
+
+    #_________________________________________Hotel Management Window____________________________________
 
 class HotelmanagementSystem:
     def __init__(self,root):
@@ -357,7 +453,7 @@ class HotelmanagementSystem:
 
     
         #========================================1st image=========================================
-        img1=Image.open(r"P:\Hotel Management\images\img17.jpg") #"E:\hotel management pics\ezgif-sixteen_nine_161.webp"
+        img1=Image.open(r"P:\Hotel Management\images\img17.jpg")
         img1=img1.resize((1360,140))
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -367,7 +463,7 @@ class HotelmanagementSystem:
     
 
         #========================================logo=========================================
-        img2=Image.open(r"P:\Hotel Management\images\logo3.png") #"E:\hotel management pics\ezgif-sixteen_nine_161.webp"
+        img2=Image.open(r"P:\Hotel Management\images\logo3.png")
         img2=img2.resize((230,140))
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -406,16 +502,16 @@ class HotelmanagementSystem:
         details_btn.grid(row=2,column=0,pady=1)
 
 
-        report_btn=Button(btn_frame,text="REPORT",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        report_btn=Button(btn_frame,text="REPORT", command=self.report,width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         report_btn.grid(row=3,column=0,pady=1)
 
-        logout_btn=Button(btn_frame,text="LOG OUT",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        logout_btn=Button(btn_frame,text="LOG OUT",command=self.logout,width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         logout_btn.grid(row=4,column=0,pady=1)
 
 
 
         #======================================RIGHT SIDE IMAGE=============================================
-        img3=Image.open(r"P:\Hotel Management\images\img2.jpg") #"E:\hotel management pics\ezgif-sixteen_nine_161.webp"
+        img3=Image.open(r"P:\Hotel Management\images\img2.jpg")
         img3=img3.resize((1132,510))
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -424,7 +520,7 @@ class HotelmanagementSystem:
 
 
         #============================================Down images============================================
-        img4=Image.open(r"P:\Hotel Management\images\img25.jpg") #"E:\hotel management pics\ezgif-sixteen_nine_161.webp"
+        img4=Image.open(r"P:\Hotel Management\images\img25.jpg")
         img4=img4.resize((230,150))
         self.photoimg4=ImageTk.PhotoImage(img4)
 
@@ -432,7 +528,7 @@ class HotelmanagementSystem:
         lblimg1.place(x=0,y=225,width=225,height=145)
 
 
-        img5=Image.open(r"P:\Hotel Management\images\img23.jpg") #"E:\hotel management pics\ezgif-sixteen_nine_161.webp"
+        img5=Image.open(r"P:\Hotel Management\images\img23.jpg")
         img5=img5.resize((230,150))
         self.photoimg5=ImageTk.PhotoImage(img5)
 
@@ -442,6 +538,14 @@ class HotelmanagementSystem:
     def cust_details(self):
         self.new_window = Toplevel(self.root)
         self.app = Cust_Win(self.new_window)
+
+
+    def report(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Report(self.new_window)
+
+    def logout(self):
+        self.root.destroy()
 
 
 

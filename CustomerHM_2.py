@@ -9,8 +9,8 @@ from tkinter import messagebox
 class Cust_Win:
     def __init__(self,root):
         self.root = root
-        self.root.title("Hotel Management System")
-        self.root.geometry("1295x550+25+60")
+        self.root.title("Customer Details")
+        self.root.geometry("1295x550+30+70")
         self.root["bg"] = "lightcyan1"
 
 
