@@ -72,7 +72,7 @@ Here are some sneak peeks of the Visuals...
 >Download MySQL from web and install the database(Hotel Management DB\hotel_management) of this project in your system.
 Name the Parent Database as "hotel_management"
 
-- Step 3:
+- Step 4:
 >Open the folder with your code editor. Substitute the Sample Image address with your image address. Change the MySQL connection passwords in different files of the whole folder.
 
 Now you are ready to Run the Program By clicking on the __main__.py file... If you are facing issues kindly mention that in issues tab.
