@@ -72,7 +72,7 @@ class Login_window:
                 self.txtpass.config(show="*") #Password is hidden
 
         c_v1=IntVar(value=0)
-        showpass=Checkbutton(frame, text="Show Password",font=("times new roman",10,"bold"),bg="black",fg="white",selectcolor="black",variable=c_v1,onvalue=1,offvalue=0,command=my_show)
+        showpass=Checkbutton(frame, text="Show Password",font=("times new roman",10,"bold"),bg="black",fg="white",selectcolor="black",variable=c_v1,onvalue=1,offvalue=0,command=my_show,highlightcolor="black",activebackground="black",activeforeground="white")
         showpass.place(x=40,y=285)
 
 
@@ -97,7 +97,7 @@ class Login_window:
         
         #===================================login button=====================================
         
-        loginbtn=Button(frame,command=self.login,text="Login",font=("times new roman",15,"bold"),bd=3,relief=RIDGE,fg="white",bg="dark blue",activeforeground="white",activebackground="red")
+        loginbtn=Button(frame,command=self.login,text="Login",font=("times new roman",15,"bold"),bd=3,relief=RIDGE,fg="#d2e7ff",bg="#1c2f5c",activeforeground="white",activebackground="red")
         loginbtn.place(x=110,y=330,width=120,height=35)
 
         #=================================register button=========================================
