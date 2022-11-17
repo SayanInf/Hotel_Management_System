@@ -9,8 +9,8 @@
 :hotel: :cityscape: :airplane:
 
 In this era, Hotels are increasing rapidly throughout the whole world. They definitely
-need a software which can manage thier daily records like Incoming Customer Details, Room distribution, Room Details, 
-Bills and Payments etc. Moreover, all of the dataset should be Classified and Private which needs a descent security system.
+need a software which can manage their daily records like Incoming Customer Details, Room distribution, Room Details, 
+Bills and Payments etc. Moreover, all of the dataset should be Classified and Private which needs a decent security system.
 This Project includes all that. The entire project is open source with MIT License for the contributors and free for distribution. :grinning:
 
 
@@ -72,7 +72,7 @@ Here are some sneak peeks of the Visuals...
 >Download MySQL from web and install the database(Hotel Management DB\hotel_management) of this project in your system.
 Name the Parent Database as "hotel_management"
 
-- Step 3:
+- Step 4:
 >Open the folder with your code editor. Substitute the Sample Image address with your image address. Change the MySQL connection passwords in different files of the whole folder.
 
 Now you are ready to Run the Program By clicking on the __main__.py file... If you are facing issues kindly mention that in issues tab.
