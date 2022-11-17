@@ -402,12 +402,12 @@ class Register:
     #=============================================Register Function=======================================================
     def register_data(self):
         if self.var_fname.get()=="" or self.var_email.get()=="" or self.var_securityQ.get()=="Select":
-            messagebox.showerror("Error","All fields are required")
+            messagebox.showerror("Error","All fields are required",parent=self.root)
         elif self.var_pass.get()!=self.var_confpass.get():
             messagebox.showerror("Error!","Password And Confirm Password Must Be Same")
         elif self.var_cheak.get()==0:
-            messagebox.showerror("Error!","Please Agree To The Terms and Conditions.")
-            messagebox.showinfo("Terms And Conditions", "Please visit site https://thehotelmanagement.co/terms-conditions/")
+            messagebox.showerror("Error!","Please Agree To The Terms and Conditions.", parent=self.root)
+            messagebox.showinfo("Terms And Conditions", "Please visit site https://thehotelmanagement.co/terms-conditions/",parent=self.root)
         else:
             conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
             my_cursor=conn.cursor()
@@ -430,7 +430,7 @@ class Register:
                                                                                      ))
             conn.commit()
             conn.close()
-            messagebox.showinfo("Success","Registered Successfully")
+            messagebox.showinfo("Success","Registered Successfully",parent=self.root)
             self.root.destroy()
 
     
