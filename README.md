@@ -10,7 +10,7 @@
 
 In this era, Hotels are increasing rapidly throughout the whole world. They definitely
 need a software which can manage their daily records like Incoming Customer Details, Room distribution, Room Details, 
-Bills and Payments etc. Moreover, all of the dataset should be Classified and Private which needs a descent security system.
+Bills and Payments etc. Moreover, all of the dataset should be Classified and Private which needs a decent security system.
 This Project includes all that. The entire project is open source with MIT License for the contributors and free for distribution. :grinning:
 
 
