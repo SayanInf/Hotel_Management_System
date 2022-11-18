@@ -65,15 +65,15 @@ Download the latest version of the python interpreter from [python.org](https://
 
 Follow these set of instructions properly to run the software in your system.
 
-- Step 1: Cloning the Repository
->Clone the 'Hotel_Management_System' in any folder of your Windows PC or Download the Zipped Folder of the The Repository manually and Unzip it in any folder of your PC. 
+### Step 1: Cloning the Repository
+Clone the 'Hotel_Management_System' in any folder of your Windows PC or Download the Zipped Folder of the The Repository manually and Unzip it in any folder of your PC. 
 To clone the repository with git bash, run the following codes in the folder you choose to keep the repository.
 ```bash
   git clone git@github.com:SayanInf/Hotel_Management_System.git
 ```
 
-- Step 2: Installing required Packages
->In the terminal(command prompt/powershell), install 'pillow' library and 'mysql-connector-python' with the following commands...
+### Step 2: Installing required Packages
+In the terminal(command prompt/powershell), install 'pillow' library and 'mysql-connector-python' with the following commands...
 
 ```bash
   pip install pillow
@@ -82,17 +82,18 @@ To clone the repository with git bash, run the following codes in the folder you
   pip install mysql-connector-python
 ```
 
-- Step 3: Database Setup
->Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcrete.sql' file. Note the MySQL hostname, username, password (andthe name of the schema only if you changed the name) of the given 'hotel_management' Schema.
+### Step 3: Database Setup
+Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, password (andthe name of the schema only if you changed the name) of the given 'hotel_management' Schema.
 
-- Step 4: It's Done! Yaayyy!!!
->Run the Hotel Management System.pyw file.
+### Step 4: It's Done! Yaayyy!!!
+Run the Hotel Management System.pyw file.
 
-- Step 5: Optional(Only after completing the above steps) 
->If you want to create an .exe file so that you can just click on the icon and it will run the app in any directory like your other programs in windows... :)
+#### Step 5: Optional - It Needs A Bit Coding Experience
+If you want to create an .exe file so that you can just click on the icon and it will run the app in any directory like your other programs in windows... :)
 We will use pyinstaller package here to convert this 'Hotel_Management_System' python package to .exe file.
+use [this version](https://github.com/SayanInf/Hotel_Management_System/tree/optional) of the project. Open all the the python files in the package directory(no need to change the GUIs directory or any secondary directories inclued in the package directory. Only change the primary directory code) and manually edit the image addresses with your folder image addresses to get the image of the package(where I wrote 'change image with your own' in comment line). It is not advisable to do it since, you may miss some address and programme won't run, but still if your are careful with the code you can do it... :) After you are done with it...
 
-for that first install [pyinstaller package](https://pyinstaller.org/en/stable/operating-mode.html#:~:text=PyInstaller%20reads%20a%20Python%20script,including%20the%20active%20Python%20interpreter!) from pip. 
+First install [pyinstaller package](https://pyinstaller.org/en/stable/operating-mode.html#:~:text=PyInstaller%20reads%20a%20Python%20script,including%20the%20active%20Python%20interpreter!) from pip. 
 Again, use terminal and enter
 ```bash
   pip install pyinstaller
@@ -107,12 +108,17 @@ change the directory to the folder where you saved the 'Hotel_Management_System'
 ```
 In the above codes don't include <> in the command.
 you can check out [this link](https://www.wikihow.com/Change-Directories-in-Command-Prompt) if you don't know how to change paths using cd command in cmd.
-Now execute the following command...
+Now, execute the following command...
 ```bash
-  pyinstaller --onefile --windowed
+  pyinstaller --onefile --windowed icon=logo3.ico Hotel_Management_System.pyw
 ```
+Add an exception if your antivirus is restricting the program from running in the background.
 
+Still if you face issues kindly mention it in the [issues](https://github.com/SayanInf/Hotel_Management_System/issues) section. 
 
+Hope you are successful in installing the package and you are running it without any issue... :grinning:
+
+Wish You A Very Happy Experience With The Software. 
 
 ## Developers
 
