@@ -104,7 +104,7 @@ class Login_window:
         registerbtn=Button(frame,text="New User Register",command=self.register_window,font=("times new roman",10,"bold"),borderwidth=0,fg="white",bg="black",activeforeground="white",activebackground="black")
         registerbtn.place(x=15,y=380,width=160,)
 
-        #==============================forgot password button================================
+        #======================================forgot password button================================
         forgotpasswordbtn=Button(frame,text="Forgot password",command=self.forgot_password_window,font=("times new roman",10,"bold"),borderwidth=0,fg="white",bg="black",activeforeground="white",activebackground="black")
         forgotpasswordbtn.place(x=8,y=400,width=160)
 
