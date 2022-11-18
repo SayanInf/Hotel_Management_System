@@ -146,4 +146,24 @@ Wish You A Very Happy Experience With The Software.
 
 ## Contact Us
 
->Drop an email on sayanghosh1427@gmail.com
+Drop an email on  
+sayanghosh1427@gmail.com,   
+purabjana@gmail.com,  
+samriddhakarmakar56@gmail.com
+
+## Contributing
+
+Contributions are always welcome!
+
+See [`contributing.md`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Contributing.md) for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+
+## Support
+
+For support, email
+  
+sayanghosh1427@gmail.com,  
+purabjana@gmail.com,  
+samriddhakarmakar56@gmail.com
