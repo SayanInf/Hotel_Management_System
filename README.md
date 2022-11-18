@@ -57,25 +57,60 @@ Here are some sneak peeks of the Visuals...
 - Basic Programming Knowledge
 - Python Programming Knowledge
 - MySQL Database Knowledge
+
+Download the latest version of the python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
+
+
 ## Installation
 
-- Step 1:
->Download the Zipped Folder of the The Repository. Unzip it in any drive of your PC.
+Follow these set of instructions properly to run the software in your system.
 
-- Step 2:
->In the terminal, install pillow library.
+- Step 1: Cloning the Repository
+>Clone the 'Hotel_Management_System' in any folder of your Windows PC or Download the Zipped Folder of the The Repository manually and Unzip it in any folder of your PC. 
+To clone the repository with git bash, run the following codes in the folder you choose to keep the repository.
+```bash
+  git clone git@github.com:SayanInf/Hotel_Management_System.git
+```
+
+- Step 2: Installing required Packages
+>In the terminal(command prompt/powershell), install 'pillow' library and 'mysql-connector-python' with the following commands...
 
 ```bash
   pip install pillow
 ```
-- Step 3:
->Download MySQL from web and install the database(Hotel Management DB\hotel_management) of this project in your system.
-Name the Parent Database as "hotel_management"
+```bash
+  pip install mysql-connector-python
+```
 
-- Step 4:
->Open the folder with your code editor. Substitute the Sample Image address with your image address. Change the MySQL connection passwords in different files of the whole folder.
+- Step 3: Database Setup
+>Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcrete.sql' file. Note the MySQL hostname, username, password (andthe name of the schema only if you changed the name) of the given 'hotel_management' Schema.
 
-Now you are ready to Run the Program By clicking on the __main__.py file... If you are facing issues kindly mention that in issues tab.
+- Step 4: It's Done! Yaayyy!!!
+>Run the Hotel Management System.pyw file.
+
+- Step 5: Optional(Only after completing the above steps) 
+>If you want to create an .exe file so that you can just click on the icon and it will run the app in any directory like your other programs in windows... :)
+We will use pyinstaller package here to convert this 'Hotel_Management_System' python package to .exe file.
+
+for that first install [pyinstaller package](https://pyinstaller.org/en/stable/operating-mode.html#:~:text=PyInstaller%20reads%20a%20Python%20script,including%20the%20active%20Python%20interpreter!) from pip. 
+Again, use terminal and enter
+```bash
+  pip install pyinstaller
+```
+if your folder is in another drive first change the drive in command prompt by
+```bash
+  <Drive Letter>:
+```
+change the directory to the folder where you saved the 'Hotel_Management_System' package. 
+```bash
+  cd <the path to the package directory>
+```
+In the above codes don't include <> in the command.
+you can check out [this link](https://www.wikihow.com/Change-Directories-in-Command-Prompt) if you don't know how to change paths using cd command in cmd.
+Now execute the following command...
+```bash
+  pyinstaller --onefile --windowed
+```
 
 
 
