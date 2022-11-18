@@ -52,13 +52,18 @@ Here are some sneak peeks of the Visuals...
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Forgot%20Password.png?raw=true)
 
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Customer%20Window.png?raw=true)
+
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/MySQL%20Details%20get.png)
+
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Report%20Window.png?raw=true)
+
 ## Prerequisite for Installation
 
 - Basic Programming Knowledge
 - Python Programming Knowledge
 - MySQL Database Knowledge
 
-Download the latest version of the python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
+- Download the latest version of the python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
 
 
 ## Installation
@@ -123,7 +128,7 @@ Wish You A Very Happy Experience With The Software.
 ## Developers
 
 - Developer 1: **Sayan Ghosh** 
->Contributions - The Project Leading, The Project Management, The GUI Design, The Registration Window, The Customer System, Report System, Customer Database, Database Integration, Whole Project Integration, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
+>Contributions - The Project Lead, The Project Management, The GUI Design, The Registration Window, The Customer System, The Report System, The Logout System, Customer Database, Database Integration, Whole Project Integration, The Dynamic MySQL Details interface, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
 - Developer 2: **Purab Jana**
 >Contributions - The Main Menu Page, Login System, Registration System, Login & Registration Windows Integration, Login Database, Logout System.
 - Developer 3: **Samriddha Karmakar**
