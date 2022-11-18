@@ -123,7 +123,7 @@ Wish You A Very Happy Experience With The Software.
 ## Developers
 
 - Developer 1: **Sayan Ghosh** 
->Contributions - The Project Management, The GUI Design, The Registration Window, The Customer System, Report System, Customer Database, Database Integration, Whole Project Integration, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
+>Contributions - The Project Leading, The Project Management, The GUI Design, The Registration Window, The Customer System, Report System, Customer Database, Database Integration, Whole Project Integration, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
 - Developer 2: **Purab Jana**
 >Contributions - The Main Menu Page, Login System, Registration System, Login & Registration Windows Integration, Login Database, Logout System.
 - Developer 3: **Samriddha Karmakar**
