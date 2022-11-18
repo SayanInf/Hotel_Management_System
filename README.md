@@ -15,12 +15,6 @@ This Project includes all that. The entire project is open source with MIT Licen
 
 
 
-
-
-
-
-
-
 ## Features
 This project includes...
 
@@ -132,7 +126,7 @@ Still if you face issues kindly mention it in the [issues](https://github.com/Sa
 
 Hope you are successful in installing the package and you are running it without any issue... :grinning:
 
-Wish You A Very Happy Experience With The Software. 
+Wish You A Very Happy Experience With The Software. :smiley:
 
 ## Developers
 
