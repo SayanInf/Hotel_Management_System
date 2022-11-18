@@ -5,6 +5,23 @@ import random
 import mysql.connector
 from tkinter import messagebox
 import os
+import MySQLdataget
+
+
+host=MySQLdataget.mysqlhost
+user=MySQLdataget.mysqluser
+password=MySQLdataget.mysqlpassword
+database=MySQLdataget.mysqldatabase
+
+try:
+    conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
+except:
+    messagebox.showerror("Error!", "Looks Like You Provided Wrong Inputs...Try Again With Correct Inputs. Or, The 'hotel_management' Database Schema Might Not Exist In The Provided Host, Follow The Standard Procdure To Add The 'hotel_management\' Schema In The Given Host Of Your MySQL Database. For Standard Procedures of Installation To Add The Schema, Visit \"https://github.com/SayanInf/Hotel_Management_System#installation\"")
+    quit()
+
+
+
+
 
 
 def pathget(img):
@@ -264,7 +281,7 @@ class Cust_Win:
         
         else :
             try:
-                conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+                conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
                 my_cursor = conn.cursor()
                 my_cursor.execute("insert into customer values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (
                                                                                         self.var_ref.get(),
@@ -288,7 +305,7 @@ class Cust_Win:
                 messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
 
     def fetch_data(self):
-        conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+        conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
         my_cursor = conn.cursor()
         my_cursor.execute("select * from customer")
         rows = my_cursor.fetchall()
@@ -326,7 +343,7 @@ class Cust_Win:
             messagebox.showerror("Error!", "Please Select A Record", parent=self.root)
         else :
             try:
-                conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+                conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
                 my_cursor = conn.cursor()
                 my_cursor.execute("update customer set Name=%s, Father=%s, Gender=%s, PostCode=%s, Mobile=%s, Email=%s, Nationality=%s, IDProof=%s, IDNumber=%s, Address=%s where Ref=%s",(
                                                                                                                                 
@@ -364,7 +381,7 @@ class Cust_Win:
                 mDelete=messagebox.askyesno("Hotel Management System","Do you want to delete this customer?", parent=self.root)
                     
                 if mDelete > 0 :
-                    conn = mysql.connector.connect(host="localhost", username="root",password="@SayanMySQL05", database="hotel_management")
+                    conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
                     my_cursor = conn.cursor()
                     query ="delete from customer where Ref=%s"
                     value = (self.var_ref.get(),)
@@ -399,7 +416,7 @@ class Cust_Win:
 
 
     def search(self):
-        conn = mysql.connector.connect(host="localhost", username="root", password="@SayanMySQL05", database="hotel_management")
+        conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
         my_cursor = conn.cursor()
 
 
