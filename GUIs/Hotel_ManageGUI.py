@@ -1,7 +1,18 @@
-from tkinter import*
+'''from tkinter import*
 from PIL import Image, ImageTk  
 from CustomerHM_2 import Cust_Win
 from report import Report
+import os
+
+
+def pathget(img):
+    global imgpathraw
+    global image
+    basedir = os.path.dirname(__file__)
+    imgpath = basedir+f"\Images\{img}"
+    imgpathraw=r'{0}'.format(imgpath)
+    image=Image.open(imgpathraw)
+
 
 
 class HotelmanagementSystem:
@@ -12,7 +23,9 @@ class HotelmanagementSystem:
 
     
         #========================================1st image=========================================
-        img1=Image.open(r"P:\Hotel Management\images\img17.jpg")
+        
+        pathget("img17.jpg")
+        img1=image
         img1=img1.resize((1360,140))
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -22,7 +35,9 @@ class HotelmanagementSystem:
     
 
         #========================================logo=========================================
-        img2=Image.open(r"P:\Hotel Management\images\logo3.png")
+        
+        pathget("logo3.png")
+        img2=image
         img2=img2.resize((230,140))
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -70,7 +85,9 @@ class HotelmanagementSystem:
 
 
         #======================================RIGHT SIDE IMAGE=============================================
-        img3=Image.open(r"P:\Hotel Management\images\img2.jpg")
+        
+        pathget("img2.jpg")
+        img3=image
         img3=img3.resize((1132,510))
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -79,7 +96,9 @@ class HotelmanagementSystem:
 
 
         #============================================Down images============================================
-        img4=Image.open(r"P:\Hotel Management\images\img25.jpg")
+        
+        pathget("img25.jpg")
+        img4=image
         img4=img4.resize((230,150))
         self.photoimg4=ImageTk.PhotoImage(img4)
 
@@ -87,7 +106,8 @@ class HotelmanagementSystem:
         lblimg1.place(x=0,y=225,width=225,height=145)
 
 
-        img5=Image.open(r"P:\Hotel Management\images\img23.jpg")
+        pathget("img23.jpg")
+        img5=image
         img5=img5.resize((230,150))
         self.photoimg5=ImageTk.PhotoImage(img5)
 
@@ -103,15 +123,12 @@ class HotelmanagementSystem:
         self.new_window = Toplevel(self.root)
         self.app = Report(self.new_window)
 
-    
-    
     def logout(self):
         self.root.destroy()
-
 
 
 
 if __name__== "__main__" :
     root = Tk()
     obj = HotelmanagementSystem(root)
-    root.mainloop()
+    root.mainloop()'''

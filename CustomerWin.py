@@ -4,6 +4,18 @@ from tkinter import ttk
 import random
 import mysql.connector
 from tkinter import messagebox
+import os
+
+
+def pathget(img):
+    global imgpathraw
+    global image
+    basedir = os.path.dirname(__file__)
+    imgpath = basedir+f"\Images\{img}"
+    imgpathraw=r'{0}'.format(imgpath)
+    image=Image.open(imgpathraw)
+
+
 
 
 class Cust_Win:
@@ -36,7 +48,9 @@ class Cust_Win:
         lbl_title.place(x=70,y=0, width=1225,height=60)
 
         # ================================Logo==================================
-        img2 = Image.open(r"P:\Hotel Management\images\logo3.png")
+        
+        pathget("logo3.png")
+        img2 = image
         img2= img2.resize((70,60))
         self.photoimg2= ImageTk.PhotoImage(img2)
 

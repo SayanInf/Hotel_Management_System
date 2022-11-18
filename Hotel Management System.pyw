@@ -3,9 +3,22 @@ from tkinter import ttk
 from PIL import Image,ImageTk
 from tkinter import messagebox
 import mysql.connector
-from CustomerHM_2 import Cust_Win
-from Hotel_Manage import HotelmanagementSystem
-from report import Report
+from CustomerWin import Cust_Win
+from ReportWin import Report
+import os
+import MySQLdataget
+
+
+host=MySQLdataget.mysqlhost
+user=MySQLdataget.mysqluser
+password=MySQLdataget.mysqlpassword
+database=MySQLdataget.mysqldatabase
+
+try:
+    conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
+except:
+    messagebox.showwarning("Warning!", "Looks like you have given wrong inputs")
+
 
 
 def main():
@@ -13,6 +26,14 @@ def main():
     app=Login_window(win)
     win.mainloop()
 
+
+def pathget(img):
+    global imgpathraw
+    global image
+    basedir = os.path.dirname(__file__)
+    imgpath = basedir+f"\Images\{img}"
+    imgpathraw=r'{0}'.format(imgpath)
+    image=Image.open(imgpathraw)
 
 
     #________________________________________Login Window______________________________________
@@ -22,18 +43,24 @@ class Login_window:
         self.root=root
         self.root.title("Login Window")
         self.root.geometry("1360x700+0+0")
+
+        basedir = os.path.dirname(__file__)
+        imgpath = basedir+"\Images\img29.jpg"
+        imgpathraw=r'{0}'.format(imgpath)
+        img=Image.open(imgpathraw)
         
-        img=Image.open(r"P:\Hotel Management\Images\img29.jpg") #"E:\hotel management pics\wallpapersden.com_dubai-hotel-sea_1920x1080.jpg"
         img=img.resize((1360,700))
         self.bg=ImageTk.PhotoImage(img)
         lbl_bg=Label(self.root,image=self.bg)
         lbl_bg.place(x=0,y=0,width=1360,height=700)
-
         frame=Frame(self.root,bg="black")
         frame.place(x=500,y=120,width=340,height=470)
-
-
-        img1=Image.open(r"P:\Hotel Management\Images\user.png") #"E:\hotel management pics\hotel images\LoginIconAppl.png"
+        
+        basedir = os.path.dirname(__file__)
+        imgpath = basedir+"\Images\logo4.png"
+        imgpathraw=r'{0}'.format(imgpath)
+        img1=Image.open(imgpathraw)
+        
         img1=img1.resize((100,100),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(img1)
 
@@ -79,15 +106,16 @@ class Login_window:
 
         #=======================================Icon images=======================================
         
-        img2=Image.open(r"P:\Hotel Management\Images\user.png")  #"E:\hotel management pics\hotel images\288592.png"
+        pathget("logo4.png")
+        img2=Image.open(imgpathraw)    
         img2=img2.resize((25,25),Image.ANTIALIAS)
         self.photoimage2=ImageTk.PhotoImage(img2)
 
         lblimg2=Label(image=self.photoimage2,bg="black",borderwidth=0,)
         lblimg2.place(x=540,y=272,width=25,height=25)
 
-
-        img3=Image.open(r"P:\Hotel Management\Images\password4.jpg") #"E:\hotel management pics\hotel images\lock-512.png"
+        pathget("password4.jpg")
+        img3=image
         img3=img3.resize((25,25),Image.ANTIALIAS)
         self.photoimage3=ImageTk.PhotoImage(img3)
 
@@ -104,7 +132,7 @@ class Login_window:
         registerbtn=Button(frame,text="New User Register",command=self.register_window,font=("times new roman",10,"bold"),borderwidth=0,fg="white",bg="black",activeforeground="white",activebackground="black")
         registerbtn.place(x=15,y=380,width=160,)
 
-        #======================================forgot password button================================
+        #==============================forgot password button================================
         forgotpasswordbtn=Button(frame,text="Forgot password",command=self.forgot_password_window,font=("times new roman",10,"bold"),borderwidth=0,fg="white",bg="black",activeforeground="white",activebackground="black")
         forgotpasswordbtn.place(x=8,y=400,width=160)
 
@@ -126,31 +154,33 @@ class Login_window:
     def login(self):
         if self.txtuser.get()=="" or self.txtpass.get()=="":
             messagebox.showerror("Error","all fields required")
-            '''elif self.txtuser.get()=="purab" and self.txtpass.get()=="over9000":
-            messagebox.showinfo("Success","Welcome to Phantom Hotel")'''
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
-            my_cursor=conn.cursor()
-            my_cursor.execute("select * from register where email=%s and password=%s",(
-                                                                                        self.txtuser.get(),
-                                                                                        self.txtpass.get()
-                                                                                        ))
-            row = my_cursor.fetchone()
-            
-            if row==None:
-                messagebox.showerror("Error","Invalid Username and Password")
-            else:
-                open_main=messagebox.askyesno("Warning!","Access only Admin")
-                if open_main>0:
-                    self.new_window=Toplevel(self.root)
-                    self.app=HotelmanagementSystem(self.new_window)
+            try:
+                conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
+                my_cursor=conn.cursor()
+                my_cursor.execute("select * from register where email=%s and password=%s",(
+                                                                                            self.txtuser.get(),
+                                                                                            self.txtpass.get()
+                                                                                            ))
+                row = my_cursor.fetchone()
+                
+                if row==None:
+                    messagebox.showerror("Error","Invalid Username and Password")
                 else:
-                    if not open_main:
-                        return
-            conn.commit()
-            conn.close()
-            self.txtuser.delete(0,'end')
-            self.txtpass.delete(0,'end')
+                    open_main=messagebox.askyesno("Warning!","Access only Admin")
+                    if open_main>0:
+                        self.new_window=Toplevel(self.root)
+                        self.app=HotelmanagementSystem(self.new_window)
+                    else:
+                        if not open_main:
+                            return
+                conn.commit()
+                conn.close()
+                self.txtuser.delete(0,'end')
+                self.txtpass.delete(0,'end')
+            
+            except Exception as es :
+                messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
 
 
     #================================================Reset Password===================================================
@@ -163,24 +193,26 @@ class Login_window:
         elif self.txt_newpass.get()=="":
             messagebox.showerror("Error!", "Please Enter The New Password",parent=self.root2)
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
-            my_cursor=conn.cursor()
-            query=("select * from register where email=%s and securityQ=%s and securityA=%s")
-            value=(self.txtuser.get(),self.combo_security_Q.get(),self.txt_Security_A.get(),)
-            my_cursor.execute(query,value)
-            row=my_cursor.fetchone()
-            if row==None:
-                messagebox.showerror("Error!", "Please Enter The Correct Answer",parent=self.root2)
-            else:
-                query=("update register set password=%s where email=%s")
-                value=(self.txt_newpass.get(),self.txtuser.get(),)
+            try:
+                conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
+                my_cursor=conn.cursor()
+                query=("select * from register where email=%s and securityQ=%s and securityA=%s")
+                value=(self.txtuser.get(),self.combo_security_Q.get(),self.txt_Security_A.get(),)
                 my_cursor.execute(query,value)
+                row=my_cursor.fetchone()
+                if row==None:
+                    messagebox.showerror("Error!", "Please Enter The Correct Answer",parent=self.root2)
+                else:
+                    query=("update register set password=%s where email=%s")
+                    value=(self.txt_newpass.get(),self.txtuser.get(),)
+                    my_cursor.execute(query,value)
 
-                conn.commit()
-                conn.close()
-                messagebox.showinfo("Info", "Your Password Has Been Reset, Please Login With New Password",parent=self.root2)
-                self.root2.destroy()
-
+                    conn.commit()
+                    conn.close()
+                    messagebox.showinfo("Info", "Your Password Has Been Reset, Please Login With New Password",parent=self.root2)
+                    self.root2.destroy()
+            except Exception as es :
+                messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
 
 
 
@@ -191,7 +223,7 @@ class Login_window:
         if self.txtuser.get()=="":
             messagebox.showerror("Error!", "Please Enter The Username To Reset Password")
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
+            conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s")
             value=(self.txtuser.get(),)
@@ -275,7 +307,9 @@ class Register:
 
 
         #========================================Background Image=======================================
-        img1=Image.open(r"P:\Hotel Management\Images\img29.jpg")         #"E:\hotel management pics\hotel images\slide3.jpg"
+        
+        pathget("img29.jpg")
+        img1=image
         img1=img1.resize((1360,700))
         self.bg=ImageTk.PhotoImage(img1)
 
@@ -285,7 +319,9 @@ class Register:
 
 
         #======================================Left Image=======================================
-        img2=Image.open(r"P:\Hotel Management\Images\img27.jpg")        # #"E:\hotel management pics\hotel images\thought-good-morning-messages-LoveSove.jpg"
+        
+        pathget("img27.jpg")
+        img2=image
         img2=img2.resize((470,550))
         self.left=ImageTk.PhotoImage(img2)
 
@@ -296,7 +332,9 @@ class Register:
         frame=Frame(self.root, bg="white")
         frame.pack()
         frame.place(x=520, y=100, width=790, height=550)
-        img3=Image.open(r"P:\Hotel Management\Images\img26.jpeg")       # #"E:\hotel management pics\hotel images\0-3450_3d-nature-wallpaper-hd-1080p-free-download-new.jpg"
+
+        pathget("img26.jpeg")
+        img3=image
         img3=img3.resize((790,550))
         self.img3=ImageTk.PhotoImage(img3)
         frameimg_lbl=Label(frame, image=self.img3)
@@ -376,13 +414,14 @@ class Register:
         #================================CheckButton========================
         
         self.var_cheak=IntVar()
-        checkbtn = Checkbutton(frame,variable=self.var_cheak, text="I Agree To The Terms & Conditions", font=("times new roman", 12, "bold"), bg="white", fg="dark blue", onvalue=1, offvalue=0)
+        checkbtn = Checkbutton(frame,variable=self.var_cheak, text="I Agree To The Terms & Conditions", font=("times new roman", 12, "bold"), bg="white", fg="dark blue", onvalue=1, offvalue=0, command=self.terms)
         checkbtn.place(x=50, y=480)
 
 
         #===============================Button===========================
 
-        registerbtnimg=Image.open(r"P:\Hotel Management\Images\Regbtn1.png")        # #"E:\hotel management pics\hotel images\register-now-button1.jpg"
+        pathget("Regbtn1.png")
+        registerbtnimg=image
         registerbtnimg=registerbtnimg.resize((300,50),Image.ANTIALIAS)
         self.photoimage=ImageTk.PhotoImage(registerbtnimg)
         btn1=Button(frame, image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2", bg="light blue", fg="light blue")
@@ -391,8 +430,8 @@ class Register:
         or_lbl=Label(frame, text="Already Have An Account?", font=("times new roman", 12, "bold"), bg="white", fg="dark blue")
         or_lbl.place(x=450,y=25)
 
-
-        loginbtnimg=Image.open(r"P:\Hotel Management\Images\login.png")             # #"E:\hotel management pics\hotel images\unnamed.png"
+        pathget("login.png")
+        loginbtnimg=image         
         loginbtnimg=loginbtnimg.resize((100,30),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(loginbtnimg)
         btn1=Button(frame, image=self.photoimage1,command=self.login_window,borderwidth=0,cursor="hand2", bg="light blue", fg="light blue")
@@ -409,7 +448,7 @@ class Register:
             messagebox.showerror("Error!","Please Agree To The Terms and Conditions.", parent=self.root)
             messagebox.showinfo("Terms And Conditions", "Please visit site https://thehotelmanagement.co/terms-conditions/",parent=self.root)
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="@SayanMySQL05",database="hotel_management")
+            conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
             my_cursor=conn.cursor()
             query=("select * from register where email=%s")
             value=(self.var_email.get(),)
@@ -438,6 +477,30 @@ class Register:
     def login_window(self):
         self.root.destroy()
 
+    def terms(self):
+        self.open=open("Terms&Conditions.txt")
+        self.read=StringVar()
+        self.read=self.open.read()
+
+        self.root3=Toplevel()
+        self.root3.title("Terms and Conditions")
+        self.root3.geometry("640x540+500+110")
+
+        TextArea = Text(self.root3, font = "calibri 12")
+        TextArea.pack(fill = "both", expand=True)
+        TextArea.insert(1.0, self.read)
+        TextArea.config(state=DISABLED)
+        
+        scroll_x = ttk.Scrollbar(TextArea, orient=HORIZONTAL)
+        scroll_y = ttk.Scrollbar(TextArea, orient=VERTICAL)
+
+        scroll_x.pack(side=BOTTOM, fill=X)
+        scroll_y.pack(side=RIGHT, fill=Y)
+        
+        scroll_x.config(command=self.TextArea.xview)
+        scroll_y.config(command=self.TextArea.yview)
+
+
 
 
 
@@ -453,7 +516,9 @@ class HotelmanagementSystem:
 
     
         #========================================1st image=========================================
-        img1=Image.open(r"P:\Hotel Management\images\img17.jpg")
+        
+        pathget("img17.jpg")
+        img1=image
         img1=img1.resize((1360,140))
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -463,7 +528,9 @@ class HotelmanagementSystem:
     
 
         #========================================logo=========================================
-        img2=Image.open(r"P:\Hotel Management\images\logo3.png")
+        
+        pathget("logo3.png")
+        img2=image
         img2=img2.resize((230,140))
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -511,7 +578,9 @@ class HotelmanagementSystem:
 
 
         #======================================RIGHT SIDE IMAGE=============================================
-        img3=Image.open(r"P:\Hotel Management\images\img2.jpg")
+        
+        pathget("img2.jpg")
+        img3=image
         img3=img3.resize((1132,510))
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -520,7 +589,9 @@ class HotelmanagementSystem:
 
 
         #============================================Down images============================================
-        img4=Image.open(r"P:\Hotel Management\images\img25.jpg")
+        
+        pathget("img25.jpg")
+        img4=image
         img4=img4.resize((230,150))
         self.photoimg4=ImageTk.PhotoImage(img4)
 
@@ -528,7 +599,8 @@ class HotelmanagementSystem:
         lblimg1.place(x=0,y=225,width=225,height=145)
 
 
-        img5=Image.open(r"P:\Hotel Management\images\img23.jpg")
+        pathget("img23.jpg")
+        img5=image
         img5=img5.resize((230,150))
         self.photoimg5=ImageTk.PhotoImage(img5)
 
@@ -546,9 +618,6 @@ class HotelmanagementSystem:
 
     def logout(self):
         self.root.destroy()
-
-
-
 
 
 
