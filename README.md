@@ -24,12 +24,21 @@ This Project includes all that. The entire project is open source with MIT Licen
 ## Features
 This project includes...
 
-- Login, Registration System, Logout for the Admins. :closed_lock_with_key:
-- Hotel Managagement Main Menu for navigation through different windows . :computer:
-- Customers Details Window with flexible Search Bar. :mag:
-- Customer Room Distribution Details with Search System. :office:
-- Details Tab. :bookmark_tabs:
-...and much more. Explore the Software for details.
+- **MySQL Database Connectivity** :books:
+- **Dynamic Admin Personalised MySQL Details Fetching Feature** :calling:
+- **Login, Registration, Logout Feature** for the Admins :closed_lock_with_key:
+- **Hotel Managagement Main Menu** for navigation through different windows :computer:
+- **Customers Details Window** with flexible Search Bar and Database :mag:
+- **Customer Checkin, Checkout, Perosonal Infos** Records with Privacy Gurantee. :label:
+- **Payment & Billing System** with different parameters. :credit_card:
+- **Roombooking Details** with Room distribution :balance_scale:
+- **Hotel Room Distribution Details** with different Parameters, Dynamic Search System and Database. :office:
+- **Hotel Upgradation Compatible** such as addition of new floors or rooms, upgradation of rooms, etc :bookmark_tabs:
+- **Hotel Centered Easily Customisable Opensource Software** :star_struck:
+  
+...and much more. Explore the Software for details.  
+:point_down:  
+[Click Here To Explore](https://github.com/SayanInf/Hotel_Management_System)
 
 
 
