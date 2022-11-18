@@ -11,10 +11,10 @@ def getit():
     global mysqlpassword
     global mysqldatabase
 
-    mysqlhost=host=mysqlhost_Entry.get()
-    mysqluser=user=mysqlusername_Entry.get()
-    mysqlpassword=password=mysqlpassword_Entry.get()
-    mysqldatabase=database=mysqldatabase_Entry.get()
+    mysqlhost=mysqlhost_Entry.get()
+    mysqluser=mysqlusername_Entry.get()
+    mysqlpassword=mysqlpassword_Entry.get()
+    mysqldatabase=mysqldatabase_Entry.get()
         
 
         
