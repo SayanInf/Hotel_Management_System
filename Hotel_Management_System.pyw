@@ -17,8 +17,8 @@ database=MySQLdataget.mysqldatabase
 try:
     conn=mysql.connector.connect(host=f"{host}",user=f"{user}",password=f"{password}",database=f"{database}")
 except:
-    messagebox.showwarning("Warning!", "Looks like you have given wrong inputs")
-
+    messagebox.showerror("Error!", "Looks Like You Provided Wrong Inputs...Try Again With Correct Inputs. Or, The 'hotel_management' Database Schema Might Not Exist In The Provided Host, Follow The Standard Procdure To Add The 'hotel_management\' Schema In The Given Host Of Your MySQL Database. For Standard Procedures of Installation To Add The Schema, Visit \"https://github.com/SayanInf/Hotel_Management_System#installation\"")
+    quit()
 
 
 def main():

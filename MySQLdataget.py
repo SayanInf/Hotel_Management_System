@@ -50,8 +50,8 @@ Welcome=Label(root, text="Welcome!", font=("times new roman", 20, "bold"), bg="l
 Welcome.place(x=200,y=20)
 
 
-getready=Label(root, text="Getting Your Database Ready...", font=("times new roman", 15, "bold"), bg="lightcyan1", fg="black")
-getready.place(x=120,y=470)
+getready=Label(root, text="Initializing Your Database...", font=("times new roman", 15, "bold"), bg="lightcyan1", fg="black")
+getready.place(x=140,y=470)
 
 
 mysqlhost=Label(root, text="MySQL Host Name", font=("times new roman", 15, "bold"), bg="lightcyan1", fg="black")
