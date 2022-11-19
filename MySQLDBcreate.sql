@@ -1,5 +1,6 @@
-CREATE DATABASE `hotel_management` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-CREATE TABLE `register` (
+CREATE DATABASE IF NOT EXISTS `hotel_management` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `hotel_management`;
+CREATE TABLE IF NOT EXISTS `register` (
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) DEFAULT NULL,
   `contact` varchar(45) DEFAULT NULL,
@@ -9,7 +10,7 @@ CREATE TABLE `register` (
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-CREATE TABLE `customer` (
+CREATE TABLE IF NOT EXISTS `customer` (
   `Ref` int NOT NULL,
   `Name` varchar(45) NOT NULL,
   `Father` varchar(45) NOT NULL,
@@ -23,7 +24,7 @@ CREATE TABLE `customer` (
   `Address` varchar(45) NOT NULL,
   PRIMARY KEY (`Ref`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-CREATE TABLE `room` (
+CREATE TABLE IF NOT EXISTS `room` (
   `contact` varchar(45) NOT NULL,
   `checkin` varchar(45) NOT NULL,
   `checkout` varchar(45) NOT NULL,
@@ -33,9 +34,11 @@ CREATE TABLE `room` (
   `noOfdays` varchar(45) NOT NULL,
   PRIMARY KEY (`roomavailable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-CREATE TABLE `details` (
+CREATE TABLE IF NOT EXISTS `details` (
   `floor` int NOT NULL,
   `RoomNo` varchar(45) NOT NULL,
   `RoomType` varchar(45) NOT NULL,
   PRIMARY KEY (`RoomNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
