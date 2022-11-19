@@ -23,7 +23,7 @@ This project includes...
 - **Login, Registration, Logout Feature** for the Admins :closed_lock_with_key:
 - **Hotel Managagement Main Menu** for navigation through different windows :computer:
 - **Customers Details Window** with flexible Search Bar and Database :mag:
-- **Customer Checkin, Checkout, Perosonal Infos** Records with Privacy Gurantee. :label:
+- **Customer Checkin, Checkout, Perosonal Infos** Records with Privacy Guarantee. :label:
 - **Payment & Billing System** with different parameters. :credit_card:
 - **Roombooking Details** with Room distribution :balance_scale:
 - **Hotel Room Distribution Details** with different Parameters, Dynamic Search System and Database. :office:
@@ -71,11 +71,11 @@ Here are some sneak peeks of the Visuals...
 
 ## Installation
 
-Follow these set of instructions properly to run the software in your system.
+Follow these set of instructions properly to run the software in your system...
 
 ### Step 1: Cloning the Repository
 Clone the 'Hotel_Management_System' in any folder of your Windows PC or Download the Zipped Folder of the The Repository manually and Unzip it in any folder of your PC. 
-To clone the repository with git bash, run the following codes in the folder you choose to keep the repository.
+To clone the repository with git bash; run the following codes in the folder you choose to keep the repository.
 ```bash
   git clone git@github.com:SayanInf/Hotel_Management_System.git
 ```
@@ -91,7 +91,7 @@ In the terminal(command prompt/powershell), install 'pillow' library and 'mysql-
 ```
 
 ### Step 3: Database Setup
-Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, password (andthe name of the schema only if you changed the name) of the given 'hotel_management' Schema.
+Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, password (and the name of the schema only if you changed the name) of the given 'hotel_management' Schema.
 
 ### Step 4: It's Done! Yaayyy!!!
 Run the Hotel Management System.pyw file.
@@ -122,11 +122,11 @@ Now, execute the following command...
 ```
 Add an exception if your antivirus is restricting the program from running in the background.
 
-Still if you face issues kindly mention it in the [issues](https://github.com/SayanInf/Hotel_Management_System/issues) section. 
+Still if you face issues, kindly mention it in the [issues](https://github.com/SayanInf/Hotel_Management_System/issues) section. 
 
 Hope you are successful in installing the package and you are running it without any issue... :grinning:
 
-Wish You A Very Happy Experience With The Software. :smiley:
+Wish You A Very Happy Experience With The Software. :wink:
 
 ## Developers
 
