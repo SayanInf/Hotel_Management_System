@@ -171,3 +171,10 @@ For support, email
 sayanghosh1427@gmail.com,  
 purabjana@gmail.com,  
 samriddhakarmakar56@gmail.com
+
+
+## Issue Templates
+
+you can use these templates to mention an issue... 
+
+[issue templates](https://github.com/SayanInf/Hotel_Management_System/tree/main/.github/ISSUE_TEMPLATE)
