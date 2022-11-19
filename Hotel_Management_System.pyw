@@ -4,9 +4,12 @@ from PIL import Image,ImageTk
 from tkinter import messagebox
 import mysql.connector
 from CustomerWin import Cust_Win
+from RoomWin import Room_Win
 from ReportWin import Report
+from Details import Details_Win
 import os
 import MySQLdataget
+
 
 
 host=MySQLdataget.mysqlhost
@@ -562,10 +565,10 @@ class HotelmanagementSystem:
         cust_btn.grid(row=0,column=0,pady=1)
 
 
-        room_btn=Button(btn_frame,text="ROOM",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        room_btn=Button(btn_frame,text="ROOMS",width=22, command=self.room_details, font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         room_btn.grid(row=1,column=0,pady=1)
 
-        details_btn=Button(btn_frame,text="DETAILS",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        details_btn=Button(btn_frame,text="DETAILS", command= self.floor_details, width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         details_btn.grid(row=2,column=0,pady=1)
 
 
@@ -618,6 +621,16 @@ class HotelmanagementSystem:
 
     def logout(self):
         self.root.destroy()
+
+    def room_details(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Room_Win(self.new_window)
+
+    def floor_details(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Details_Win(self.new_window)
+
+
 
 
 
