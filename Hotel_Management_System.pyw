@@ -470,9 +470,9 @@ class Register:
                                                                                         self.var_pass.get()
 
                                                                                      ))
-            conn.commit()
-            conn.close()
-            messagebox.showinfo("Success","Registered Successfully",parent=self.root)
+                conn.commit()
+                conn.close()
+                messagebox.showinfo("Success","Registered Successfully",parent=self.root)
             self.root.destroy()
 
     
