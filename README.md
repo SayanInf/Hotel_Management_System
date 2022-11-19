@@ -133,7 +133,7 @@ Wish You A Very Happy Experience With The Software. :wink:
 - Developer 1: **Sayan Ghosh** 
 >Contributions - The Project Lead, The Project Management, The GUI Design, The Registration Window, The Customer System, The Report System, The Logout System, Customer Database, Database Integration, Whole Project Integration, The Dynamic MySQL Details interface, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
 - Developer 2: **Purab Jana**
->Contributions - The Main Menu Page, Login System, Registration System, Login & Registration Windows Integration, Login Database, Logout System.
+>Contributions - The Main Menu Page, Login System, Registration System, Login & Registration System Integration, Login Database, Logout System, Logout System.
 - Developer 3: **Samriddha Karmakar**
 >Contributions - The Room System, The Details System, Room Database, Details Database.
 
