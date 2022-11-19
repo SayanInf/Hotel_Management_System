@@ -458,7 +458,7 @@ class Room_Win:
                 conn.commit()
                 self.fetch_data()
                 conn.close()
-                messagebox.showinfo("Update", "Room Details Has Been Updated Successfully", parent=self.root)
+                messagebox.showinfo("Update", "Details Have Been Updated Successfully", parent=self.root)
                 
             except Exception as es :
                 messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
