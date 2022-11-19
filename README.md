@@ -138,10 +138,10 @@ Wish You A Very Happy Experience With The Software. :wink:
 - Step 1: Install Package  
 Install the whole package at first from here [installation process](https://github.com/SayanInf/Hotel_Management_System#installation)
 
-- Step 2: Customise Your Hotel Terms And Conditions
+- Step 2: Customise Your Hotel Terms And Conditions  
 Open [`Terms&Condtion.txt`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Terms%26Conditions.txt) and write your terms and conditions for admin registration.
 
-- Step 3: Customise Your Hotel Prices
+- Step 3: Customise Your Hotel Prices  
 Open [`Price.py`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Price.py) and customise your hotel prices or edit the code as per instructions given in the file for mor customisation.
 
 Hurrah! You are all set. Now, You are ready to deploy the software in your system. :ok_hand:
@@ -149,11 +149,11 @@ Hurrah! You are all set. Now, You are ready to deploy the software in your syste
 ## Developers
 
 - Developer 1: **Sayan Ghosh** 
->Contributions - The Project Lead, The Project Management, The GUI Design, The Registration Window, The Customer System, The Report System, The Logout System, Customer Database, Database Integration, Whole Project Integration, The Dynamic MySQL Details interface, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
+>Contributions - The Project Lead, The Project Management, The GUI Design, The Registration Window, The Customer System, The Roombooking System, The Room Details System, The Report System, The Logout System, Customer Database, Database Integration, Whole Project Integration, The Dynamic MySQL Details interface, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging, Project Control & Commit.
 - Developer 2: **Purab Jana**
->Contributions - The Main Menu Page, Login System, Registration System, Login & Registration System Integration, Login Database, Logout System, Logout System.
+>Contributions - The Main Menu Page, Login System, Registration System, Login & Registration System Integration, Login Database, Logout System, Database Integration.
 - Developer 3: **Samriddha Karmakar**
->Contributions - The Room System, The Details System, Room Database, Details Database.
+>Contributions - The Room System, The Details System, Room Database, Details Database, Database Integration.
 
 
 
