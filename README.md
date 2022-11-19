@@ -3,6 +3,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![GitHub top language](https://img.shields.io/github/languages/top/SayanInf/Hotel_Management_System)
+![](https://komarev.com/ghpvc/?username=SayanInf)
 
 # Hotel Management System
 
@@ -15,21 +16,24 @@ This Project includes all that. The entire project is open source with MIT Licen
 
 
 
-
-
-
-
-
-
 ## Features
 This project includes...
 
-- Login, Registration System, Logout for the Admins. :closed_lock_with_key:
-- Hotel Managagement Main Menu for navigation through different windows . :computer:
-- Customers Details Window with flexible Search Bar. :mag:
-- Customer Room Distribution Details with Search System. :office:
-- Details Tab. :bookmark_tabs:
-...and much more. Explore the Software for details.
+- **MySQL Database Connectivity** :books:
+- **Dynamic Admin Personalised MySQL Details Fetching Feature** :calling:
+- **Login, Registration, Logout Feature** for the Admins :closed_lock_with_key:
+- **Hotel Managagement Main Menu** for navigation through different windows :computer:
+- **Customers Details Window** with flexible Search Bar and Database :mag:
+- **Customer Checkin, Checkout, Perosonal Infos** Records with Privacy Guarantee. :label:
+- **Payment & Billing System** with different parameters. :credit_card:
+- **Roombooking Details** with Room distribution :balance_scale:
+- **Hotel Room Distribution Details** with different Parameters, Dynamic Search System and Database. :office:
+- **Hotel Upgradation Compatible** such as addition of new floors or rooms, upgradation of rooms, etc :bookmark_tabs:
+- **Hotel Centered Easily Customisable Opensource Software** :star_struck:
+  
+...and much more. Explore the Software for details.  
+:point_down:  
+[Click Here To Explore](https://github.com/SayanInf/Hotel_Management_System)
 
 
 
@@ -52,22 +56,27 @@ Here are some sneak peeks of the Visuals...
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Forgot%20Password.png?raw=true)
 
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Customer%20Window.png?raw=true)
+
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/MySQL%20Details%20get.png)
+
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Report%20Window.png?raw=true)
+
 ## Prerequisite for Installation
 
 - Basic Programming Knowledge
 - Python Programming Knowledge
 - MySQL Database Knowledge
 
-Download the latest version of the python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
+- Download the latest version of the python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
 
 
 ## Installation
 
-Follow these set of instructions properly to run the software in your system.
+Follow these set of instructions properly to run the software in your system...
 
 ### Step 1: Cloning the Repository
 Clone the 'Hotel_Management_System' in any folder of your Windows PC or Download the Zipped Folder of the The Repository manually and Unzip it in any folder of your PC. 
-To clone the repository with git bash, run the following codes in the folder you choose to keep the repository.
+To clone the repository with git bash; run the following codes in the folder you choose to keep the repository.
 ```bash
   git clone git@github.com:SayanInf/Hotel_Management_System.git
 ```
@@ -83,7 +92,7 @@ In the terminal(command prompt/powershell), install 'pillow' library and 'mysql-
 ```
 
 ### Step 3: Database Setup
-Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, password (andthe name of the schema only if you changed the name) of the given 'hotel_management' Schema.
+Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, password (and the name of the schema only if you changed the name) of the given 'hotel_management' Schema.
 
 ### Step 4: It's Done! Yaayyy!!!
 Run the Hotel Management System.pyw file.
@@ -114,18 +123,18 @@ Now, execute the following command...
 ```
 Add an exception if your antivirus is restricting the program from running in the background.
 
-Still if you face issues kindly mention it in the [issues](https://github.com/SayanInf/Hotel_Management_System/issues) section. 
+Still if you face issues, kindly mention it in the [issues](https://github.com/SayanInf/Hotel_Management_System/issues) section. 
 
 Hope you are successful in installing the package and you are running it without any issue... :grinning:
 
-Wish You A Very Happy Experience With The Software. 
+Wish You A Very Happy Experience With The Software. :wink:
 
 ## Developers
 
 - Developer 1: **Sayan Ghosh** 
->Contributions - The Project Leading, The Project Management, The GUI Design, The Registration Window, The Customer System, Report System, Customer Database, Database Integration, Whole Project Integration, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
+>Contributions - The Project Lead, The Project Management, The GUI Design, The Registration Window, The Customer System, The Report System, The Logout System, Customer Database, Database Integration, Whole Project Integration, The Dynamic MySQL Details interface, README.md generation, Git Control, GitHub Repository Management, Updates and Upgrades of different features for dynamicity of the Software, Debugging.
 - Developer 2: **Purab Jana**
->Contributions - The Main Menu Page, Login System, Registration System, Login & Registration Windows Integration, Login Database, Logout System.
+>Contributions - The Main Menu Page, Login System, Registration System, Login & Registration System Integration, Login Database, Logout System, Logout System.
 - Developer 3: **Samriddha Karmakar**
 >Contributions - The Room System, The Details System, Room Database, Details Database.
 
@@ -141,4 +150,31 @@ Wish You A Very Happy Experience With The Software.
 
 ## Contact Us
 
->Drop an email on sayanghosh1427@gmail.com
+Drop an email on  
+sayanghosh1427@gmail.com,   
+purabjana@gmail.com,  
+samriddhakarmakar56@gmail.com
+
+## Contributing
+
+Contributions are always welcome!
+
+See [`contributing.md`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Contributing.md) for ways to get started.
+
+Please adhere to this project's [`code of conduct`](https://github.com/SayanInf/Hotel_Management_System/blob/main/CODE_OF_CONDUCT.md).
+
+
+## Support
+
+For support, email
+  
+sayanghosh1427@gmail.com,  
+purabjana@gmail.com,  
+samriddhakarmakar56@gmail.com
+
+
+## Issue Templates
+
+you can use these templates to mention an issue... 
+
+[issue templates](https://github.com/SayanInf/Hotel_Management_System/tree/main/.github/ISSUE_TEMPLATE)
