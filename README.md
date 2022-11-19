@@ -57,6 +57,10 @@ Here are some sneak peeks of the Visuals...
 
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Customer%20Window.png?raw=true)
 
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Room%20Booking%20Window.png?raw=true)
+
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Room%20Details%20Winodw.png?raw=true)
+
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/MySQL%20Details%20get.png)
 
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Report%20Window.png?raw=true)
@@ -129,6 +133,19 @@ Hope you are successful in installing the package and you are running it without
 
 Wish You A Very Happy Experience With The Software. :wink:
 
+## Deployment
+
+- Step 1: Install Package  
+Install the whole package at first from here [installation process](https://github.com/SayanInf/Hotel_Management_System#installation)
+
+- Step 2: Customise Your Hotel Terms And Conditions
+Open [`Terms&Condtion.txt`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Terms%26Conditions.txt) and write your terms and conditions for admin registration.
+
+- Step 3: Customise Your Hotel Prices
+Open [`Price.py`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Price.py) and customise your hotel prices or edit the code as per instructions given in the file for mor customisation.
+
+Hurrah! You are all set. Now, You are ready to deploy the software in your system. :ok_hand:
+
 ## Developers
 
 - Developer 1: **Sayan Ghosh** 
@@ -178,3 +195,8 @@ samriddhakarmakar56@gmail.com
 you can use these templates to mention an issue... 
 
 [issue templates](https://github.com/SayanInf/Hotel_Management_System/tree/main/.github/ISSUE_TEMPLATE)
+
+## Last But Not Least
+
+If you really liked our project, appreciate our efforts into it and want more softwares like this in the future do not forget to give this repository a star :star:  
+Thank You For Your Interest. :handshake:
