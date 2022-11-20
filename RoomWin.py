@@ -428,9 +428,9 @@ class Room_Win:
         self.var_roomavailable.set(row[4]),
         self.var_meal.set(row[5]),
         self.var_noofdays.set(row[6])
-        self.var_paidtax.set(row[7])
+        '''self.var_paidtax.set(row[7])
         self.var_subtotal.set(row[8])
-        self.var_total.set(row[9])
+        self.var_total.set(row[9])'''
 
 
 
@@ -446,14 +446,14 @@ class Room_Win:
                 my_cursor = conn.cursor()
                 my_cursor.execute("update room set checkin=%s, checkout=%s, roomtype=%s, roomavailable=%s, meal=%s, noOfdays=%s where contact=%s",(
                                                                                                                                     
-                                                                                                                                    self.var_checkin.get(),
-                                                                                                                                    self.var_checkout.get(),
-                                                                                                                                    self.var_roomtype.get(),
-                                                                                                                                    self.var_roomavailable.get(),
-                                                                                                                                    self.var_meal.get(),
-                                                                                                                                    self.var_noofdays.get(),
-                                                                                                                                    self.var_contact.get()
-                                                                                                                                ))
+                                                                                                                                                    self.var_checkin.get(),
+                                                                                                                                                    self.var_checkout.get(),
+                                                                                                                                                    self.var_roomtype.get(),
+                                                                                                                                                    self.var_roomavailable.get(),
+                                                                                                                                                    self.var_meal.get(),
+                                                                                                                                                    self.var_noofdays.get(),
+                                                                                                                                                    self.var_contact.get()
+                                                                                                                                                    ))
 
                 conn.commit()
                 self.fetch_data()
@@ -486,6 +486,7 @@ class Room_Win:
                 conn.commit()
                 self.fetch_data()
                 conn.close()
+            
             except Exception as es :
                 messagebox.showwarning("Warning", f"Something Went Wrong: {str(es)}", parent = self.root)
 
@@ -515,30 +516,30 @@ class Room_Win:
         self.var_noofdays.set(abs(outdate-indate).days)
 
         days=float(self.var_noofdays.get())
-        print("days",days)
+
 
         
         if self.var_roomtype.get()=="Single":
             lps=Price.singleroom
-            print("lps",lps)
+
         elif self.var_roomtype.get()=="Double":
             lps=Price.doubleroom
-            print("lps",lps)
+
         elif self.var_roomtype.get()=="Triple":
             lps=Price.tripleroom
-            print("lps",lps)
+
         else:
             messagebox.showerror("Error!", "No Room is selected")
 
         if self.var_meal.get()=="Breakfast":
             fps=Price.breakfast
-            print("fps",fps)
+        
         elif self.var_meal.get()=="Lunch":
             fps=Price.lunch
-            print("lps",lps)
+        
         elif self.var_meal.get()=="Dinner":
             fps=Price.dinner
-            print("lps",lps)
+        
         else:
             messagebox.showerror("Error!", "No Meal is selected")
         
@@ -546,10 +547,6 @@ class Room_Win:
         paidtax=((lps)*(Price.taxroom)+(fps)*(Price.taxfood)+((fps)+(lps))*(Price.taxsupport))*(days)
         subtotal=((fps)+(lps))*(days)
         total=(paidtax)+(subtotal)
-        print("paidtax",paidtax)
-        print("subtotal",subtotal)
-        print("total",total)   
-
         tax="Rs. "+str("%.2f"%(paidtax))
         Subtotal="Rs. "+str("%.2f"%(subtotal))
         Total="Rs. "+str("%.2f"%(total))
