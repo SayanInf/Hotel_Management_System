@@ -102,9 +102,9 @@ Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the
 Run the Hotel Management System.pyw file.
 
 #### Step 5: Optional - It Needs A Bit Coding Experience
-If you want to create an .exe file so that you can just click on the icon and it will run the app in any directory like your other programs in windows... :)
-We will use pyinstaller package here to convert this 'Hotel_Management_System' python package to .exe file.
-use [this version](https://github.com/SayanInf/Hotel_Management_System/tree/optional) of the project. Open all the the python files in the package directory(no need to change the GUIs directory or any secondary directories inclued in the package directory. Only change the primary directory code) and manually edit the image addresses with your folder image addresses to get the image of the package(where I wrote 'change image with your own' in comment line). It is not advisable to do it since, you may miss some address and programme won't run, but still if your are careful with the code you can do it... :) After you are done with it...
+If you want to create an `.exe` file so that you can just click on the icon and it will run the app in any directory like your other programs in windows... :)
+We will use pyinstaller package here to convert this 'Hotel_Management_System' python package to `.exe` file.
+use [this version](https://github.com/SayanInf/Hotel_Management_System/tree/optional) of the project. Open all the the python files in the package directory(no need to change the GUIs directory or any secondary directories included in the package directory. Only change the primary directory code) and manually edit the image addresses with your folder image addresses to get the image of the package(where I wrote 'change image with your own' in comment line). It is not advisable to do it since, you may miss some addresses and the programme won't run, but still if you're careful with the code you can do it... :) After you are done with it...
 
 First install [pyinstaller package](https://pyinstaller.org/en/stable/operating-mode.html#:~:text=PyInstaller%20reads%20a%20Python%20script,including%20the%20active%20Python%20interpreter!) from pip. 
 Again, use terminal and enter
@@ -135,14 +135,14 @@ Wish You A Very Happy Experience With The Software. :wink:
 
 ## Deployment
 
-- Step 1: Install Package  
+- **Step 1:** Install Package  
 Install the whole package at first from here [installation process](https://github.com/SayanInf/Hotel_Management_System#installation)
 
-- Step 2: Customise Your Hotel Terms And Conditions  
+- **Step 2:** Customise Your Hotel Terms And Conditions  
 Open [`Terms&Condtion.txt`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Terms%26Conditions.txt) and write your terms and conditions for admin registration.
 
-- Step 3: Customise Your Hotel Prices  
-Open [`Price.py`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Price.py) and customise your hotel prices or edit the code as per instructions given in the file for mor customisation.
+- **Step 3:** Customise Your Hotel Prices  
+Open [`Price.py`](https://github.com/SayanInf/Hotel_Management_System/blob/main/Price.py) and customise your hotel prices or edit the code as per instructions given in the file for more customisation.
 
 Hurrah! You are all set. Now, You are ready to deploy the software in your system. :ok_hand:
 
@@ -198,5 +198,5 @@ you can use these templates to mention an issue...
 
 ## Last But Not Least
 
-If you really liked our project, appreciate our efforts into it and want more softwares like this in the future do not forget to give this repository a star :star:  
+If you appreciate our efforts, really liked our project and want more softwares like this in the future do not forget to give this repository a star :star:  
 Thank You For Your Interest. :handshake:
