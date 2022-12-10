@@ -47,23 +47,23 @@ This project includes...
 
 Here are some sneak peeks of the Visuals...
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Login%20System.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Login%20System.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Registration%20Window.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Registration%20Window.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Main%20Menu.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Main%20Menu.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Forgot%20Password.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Forgot%20Password.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Customer%20Window.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Customer%20Window.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Room%20Booking%20Window.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Room%20Booking%20Window.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Room%20Details%20Winodw.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Room%20Details%20Winodw.png)
 
 ![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/MySQL%20Details%20get.png)
 
-![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Report%20Window.png?raw=true)
+![App Screenshot](https://github.com/SayanInf/Hotel_Management_System/blob/main/Screenshots/Report%20Window.png)
 
 ## Prerequisite for Installation
 
