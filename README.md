@@ -40,7 +40,7 @@ This project includes...
 
 ## Frontend & Backend
 
-- Forntend:  Python
+- Frontend:  Python
 - Backend:  MySQL
 
 ## Screenshots
