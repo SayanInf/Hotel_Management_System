@@ -22,13 +22,13 @@ This project includes...
 - **MySQL Database Connectivity** :books:
 - **Dynamic Admin Personalised MySQL Details Fetching Feature** :calling:
 - **Login, Registration, Logout Feature** for the Admins :closed_lock_with_key:
-- **Hotel Managagement Main Menu** for navigation through different windows :computer:
+- **Hotel Management Main Menu** for navigation through different windows :computer:
 - **Customers Details Window** with flexible Search Bar and Database :mag:
-- **Customer Checkin, Checkout, Perosonal Infos** Records with Privacy Guarantee. :label:
+- **Customer Checkin, Checkout, Personal Infos** Records with Privacy Guarantee. :label:
 - **Payment & Billing System** with different parameters. :credit_card:
 - **Roombooking Details** with Room distribution :balance_scale:
-- **Hotel Room Distribution Details** with different Parameters, Dynamic Search System and Database. :office:
-- **Hotel Upgradation Compatible** such as addition of new floors or rooms, upgradation of rooms, etc :bookmark_tabs:
+- **Hotel Room Distribution Details** with different Parameters, Dynamic Search System, and Database. :office:
+- **Hotel Upgradation Compatible** such as the addition of new floors or rooms, upgradation of rooms, etc :bookmark_tabs:
 - **Hotel Centered Easily Customisable Opensource Software** :star_struck:
   
 ...and much more. Explore the Software for details.  
@@ -71,7 +71,7 @@ Here are some sneak peeks of the Visuals...
 - Python Programming Knowledge
 - MySQL Database Knowledge
 
-- Download the latest version of the python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
+- Download the latest version of the Python interpreter from [python.org](https://www.python.org/downloads/) and add 'pip' while installation. If you don't have MySQL, download it from [here](https://dev.mysql.com/downloads/installer/) and install it.
 
 
 ## Installation
@@ -96,7 +96,7 @@ In the terminal(command prompt/powershell), install 'pillow' library and 'mysql-
 ```
 
 ### Step 3: Database Setup
-Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it in the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, password (and the name of the schema only if you changed the name) of the given 'hotel_management' Schema.
+Open the 'Hotel_Management_System' folder which you downloaded earlier, copy the contents of [MySQLDbcreate.sql](https://github.com/SayanInf/Hotel_Management_System/blob/main/MySQLDBcreate.sql) and paste it into the MySQL command line or Directly open it with MySQL Workbench and click on the lightning icon shown in the top bar. Or, use Command Prompt(cmd) to run the 'MySQLDBcreate.sql' file. Note the MySQL hostname, username, and password (and the name of the schema only if you changed the name) of the given 'hotel_management' Schema.
 
 ### Step 4: It's Done! Yaayyy!!!
 Run the Hotel Management System.pyw file.
@@ -104,14 +104,14 @@ Run the Hotel Management System.pyw file.
 #### Step 5: Optional - It Needs A Bit Coding Experience
 If you want to create an `.exe` file so that you can just click on the icon and it will run the app in any directory like your other programs in windows... :)
 We will use pyinstaller package here to convert this 'Hotel_Management_System' python package to `.exe` file.
-use [this version](https://github.com/SayanInf/Hotel_Management_System/tree/optional) of the project. Open all the the python files in the package directory(no need to change the GUIs directory or any secondary directories included in the package directory. Only change the primary directory code) and manually edit the image addresses with your folder image addresses to get the image of the package(where I wrote 'change image with your own' in comment line). It is not advisable to do it since, you may miss some addresses and the programme won't run, but still if you're careful with the code you can do it... :) After you are done with it...
+use [this version](https://github.com/SayanInf/Hotel_Management_System/tree/optional) of the project. Open all the the python files in the package directory(no need to change the GUIs directory or any secondary directories included in the package directory. Only change the primary directory code) and manually edit the image addresses with your folder image addresses to get the image of the package(where I wrote 'change image with your own' in comment line). It is not advisable to do it since, you may miss some addresses and the program won't run, but still, if you're careful with the code you can do it... :) After you are done with it...
 
-First install [pyinstaller package](https://pyinstaller.org/en/stable/operating-mode.html#:~:text=PyInstaller%20reads%20a%20Python%20script,including%20the%20active%20Python%20interpreter!) from pip. 
-Again, use terminal and enter
+First, install [pyinstaller package](https://pyinstaller.org/en/stable/operating-mode.html#:~:text=PyInstaller%20reads%20a%20Python%20script,including%20the%20active%20Python%20interpreter!) from pip. 
+Again, use the terminal and enter
 ```bash
   pip install pyinstaller
 ```
-if your folder is in another drive first change the drive in command prompt by
+if your folder is in another drive first change the drive in the command prompt by
 ```bash
   <Drive Letter>:
 ```
@@ -198,5 +198,5 @@ you can use these templates to mention an issue...
 
 ## Last But Not Least
 
-If you appreciate our efforts, really liked our project and want more softwares like this in the future do not forget to give this repository a star :star:  
+If you appreciate our efforts, really liked our project, and want more softwares like this in the future do not forget to give this repository a star :star:  
 Thank You For Your Interest. :handshake:
